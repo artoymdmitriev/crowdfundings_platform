@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905214845) do
+ActiveRecord::Schema.define(version: 20170905215428) do
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.date     "fundings_deadline"
+    t.text     "description"
+    t.string   "pic_link"
+    t.integer  "raitings",          default: 0
+    t.boolean  "is_funded",         default: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
