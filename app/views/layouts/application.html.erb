@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CrowdfundingsPlatform</title>
+    <title>Crowdfundings Platform</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <%= render '/shared/navbar' %>
+
+  <body class="container">
     <%= yield %>
   </body>
 </html>
