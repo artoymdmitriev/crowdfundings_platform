@@ -8,6 +8,10 @@ ru:
       settings: "Настройки"
       language: "Язык"
       theme: "Тема"
+      english: "English"
+      russian: "Русский"
+      apply_light_theme: "Применить светлую тему"
+      apply_dark_theme: "Применить темную тему"
   layouts:
       application:
         title: "Краудфандинг"

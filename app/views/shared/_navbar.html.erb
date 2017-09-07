@@ -63,12 +63,12 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t '.settings' %><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><%= t '.language' %></li>
-            <li><%= link_to_unless_current 'English', locale: 'en' %></li>
-            <li><%= link_to_unless_current 'Русский', locale: 'ru' %></li>
+            <li><%= link_to_unless_current (t '.english'), locale: 'en' %></li>
+            <li><%= link_to_unless_current (t '.russian'), locale: 'ru' %></li>
             <li class="divider"></li>
             <li><%= t '.theme' %></li>
-            <li><%= link_to_unless_current 'Change to light theme', theme: 'application_light' %></li>
-            <li><%= link_to_unless_current 'Change to dark theme', theme: 'application_dark' %></li>
+            <li><%= link_to_unless_current (t '.apply_light_theme'), theme: 'application_light' %></li>
+            <li><%= link_to_unless_current (t '.apply_dark_theme'), theme: 'application_dark' %></li>
           </ul>
         </li>
       </ul>
