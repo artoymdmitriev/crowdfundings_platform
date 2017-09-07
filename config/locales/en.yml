@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  shared:
+    navbar:
+      login: "Log in"
+      register: "Register"
+      logout: "Log out"
+      title: "Crowdfunding"
+  layouts:
+    application:
+      title: "Crowdfunding"
+  devise:
+      sessions:
+        new:
+          login: "Log in"

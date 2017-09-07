@@ -1,0 +1,14 @@
+ru:
+  shared:
+    navbar:
+      login: "Войти"
+      register: "Зарегистрироваться"
+      logout: "Выйти"
+      title: "Краудфандинг"
+  layouts:
+      application:
+        title: "Краудфандинг"
+  devise:
+    sessions:
+      new:
+        login: "Войти"

@@ -2,3 +2,7 @@
   <%= project.name %>
     <%= project.user_id %>
 <% end %>
+
+<% if current_user.try(:admin?) %>
+    <%= Date.today %>
+<% end %>
