@@ -5,6 +5,9 @@ ru:
       register: "Зарегистрироваться"
       logout: "Выйти"
       title: "Краудфандинг"
+      settings: "Настройки"
+      language: "Язык"
+      theme: "Тема"
   layouts:
       application:
         title: "Краудфандинг"

@@ -26,6 +26,9 @@ en:
       register: "Register"
       logout: "Log out"
       title: "Crowdfunding"
+      settings: "Settings"
+      language: "Language"
+      theme: "Theme"
   layouts:
     application:
       title: "Crowdfunding"
