@@ -15,6 +15,7 @@ class UsersController < AdminController
     elsif method == (I18n.t :delete_action)
       delete users_in_hash
     end
+    redirect_to :back
   end
 
   def block users_in_hash
@@ -23,7 +24,6 @@ class UsersController < AdminController
       user.is_blocked = true
       user.save
     end
-    redirect_to :back
   end
 
   def unblock users_in_hash
@@ -32,7 +32,6 @@ class UsersController < AdminController
       user.is_blocked = false
       user.save
     end
-    redirect_to :back
   end
 
   def delete users_in_hash
@@ -40,7 +39,6 @@ class UsersController < AdminController
       user = User.find(key)
       user.delete
     end
-    redirect_to :back
   end
 
   private
