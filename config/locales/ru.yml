@@ -21,3 +21,6 @@ ru:
     sessions:
       new:
         login: "Войти"
+  block_action: "Заблокировать"
+  unblock_action: "Разблокировать"
+  delete_action: "Удалить"

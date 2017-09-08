@@ -1,20 +1,31 @@
-<table class="table table-condensed">
-  <tr>
-    <th><%= sortable 'email' %></th>
-    <th><%= sortable 'role' %></th>
-    <th><%= sortable 'created_at', 'Registered at' %></th>
-    <th><%= sortable 'last_sign_in_at', 'Last login at' %></th>
-    <th><%= sortable 'Amount of projects' %></th>
-    <th><%= sortable 'raitings' %></th>
-  </tr>
-  <% @users.each do |user| %>
-      <tr class="success">
-        <td><%= user.email %></td>
-        <td><%= user.role %></td>
-        <td><%= user.created_at %></td>
-        <td><%= user.last_sign_in_at %></td>
-        <td><%= user.amount_of_projects %></td>
-        <td><%= user.raitings %></td>
+<h1>List of Users</h1>
+
+<%= form_tag change_users_path, method: :post do %>
+    <table class="table table-condensed">
+      <tr>
+        <th></th>
+        <th><%= sortable 'email' %></th>
+        <th><%= sortable 'role' %></th>
+        <th><%= sortable 'created_at', 'Registered at' %></th>
+        <th><%= sortable 'last_sign_in_at', 'Last login at' %></th>
+        <th><%= sortable 'Amount of projects' %></th>
+        <th><%= sortable 'raitings' %></th>
+        <th><%= sortable 'is_blocked', 'Is Blocked' %></th>
       </tr>
-  <% end %>
-</table>
+      <% @users.each do |user| %>
+          <tr class="success">
+            <td><%= check_box_tag("change[#{user.id}]",1) %></td>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td><%= user.created_at %></td>
+            <td><%= user.last_sign_in_at %></td>
+            <td><%= user.amount_of_projects %></td>
+            <td><%= user.raitings %></td>
+            <td><%= user.is_blocked %></td>
+          </tr>
+      <% end %>
+    </table>
+    <%= submit_tag (I18n.t :block_action) %>
+    <%= submit_tag (I18n.t :unblock_action) %>
+    <%= submit_tag (I18n.t :delete_action) %>
+<% end %>

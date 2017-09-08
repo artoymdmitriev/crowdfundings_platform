@@ -39,6 +39,9 @@ en:
     application:
       title: "Crowdfunding"
   devise:
-      sessions:
-        new:
-          login: "Log in"
+    sessions:
+      new:
+        login: "Log in"
+  block_action: "Block"
+  unblock_action: "Unblock"
+  delete_action: "Delete"
