@@ -33,6 +33,7 @@ en:
       russian: "Русский"
       apply_light_theme: "Apply light theme"
       apply_dark_theme: "Apply dark theme"
+      apply_ginger_theme: "Apply ginger theme"
   layouts:
     application:
       title: "Crowdfunding"
