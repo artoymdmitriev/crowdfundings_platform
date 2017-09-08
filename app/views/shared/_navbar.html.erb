@@ -13,9 +13,12 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Link</a></li>
+      </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="<%= t '.search' %>">
+          <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-submit">Submit</button>
       </form>
@@ -24,19 +27,19 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
-              <li><%= link_to destroy_user_session_path, :method => :delete do %>
-                  <i class="glyphicon glyphicon-log-out"></i>&nbsp; <%= t '.logout' %>
-                <% end %>
-              </li>
+                <li><%= link_to destroy_user_session_path, :method => :delete do %>
+                      <i class="glyphicon glyphicon-log-out"></i>&nbsp; <%= t '.logout' %>
+                    <% end %>
+                </li>
             <% else %>
-              <li><%= link_to new_user_session_path do %>
-                  <i class="glyphicon glyphicon-log-in"></i>&nbsp; <%= t '.login' %>
-                <% end %>
-              </li>
-              <li><%= link_to new_user_registration_path do %>
-                  <i class="glyphicon glyphicon-plus"></i>&nbsp; <%= t '.register' %>
-                <% end %>
-              </li>
+                <li><%= link_to new_user_session_path do %>
+                      <i class="glyphicon glyphicon-log-in"></i>&nbsp; <%= t '.login' %>
+                  <% end %>
+                </li>
+                <li><%= link_to new_user_registration_path do %>
+                      <i class="glyphicon glyphicon-plus"></i>&nbsp; <%= t '.register' %>
+                  <% end %>
+                </li>
             <% end %>
             </ul>
         </div>
@@ -56,6 +59,10 @@
             <li><%= link_to_unless_current (t '.apply_ginger_theme'), theme: 'application_ginger' %></li>
           </ul>
         </li>
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
