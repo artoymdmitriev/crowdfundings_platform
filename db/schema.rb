@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908202624) do
+ActiveRecord::Schema.define(version: 20170908215745) do
+
+  create_table "passports", force: :cascade do |t|
+    t.string  "name",     null: false
+    t.string  "surname",  null: false
+    t.string  "pic_link", null: false
+    t.date    "birthday", null: false
+    t.text    "comment"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_passports_on_user_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"

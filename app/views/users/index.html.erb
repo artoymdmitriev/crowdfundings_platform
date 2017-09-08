@@ -13,7 +13,7 @@
         <th><%= sortable 'is_blocked', 'Is Blocked' %></th>
       </tr>
       <% @users.each do |user| %>
-          <tr class="success">
+          <tr class="<%= user.passport.nil? ? 'info' : 'success' %>">
             <td><%= check_box_tag("change[#{user.id}]",1) %></td>
             <td><%= user.email %></td>
             <td><%= user.role %></td>
