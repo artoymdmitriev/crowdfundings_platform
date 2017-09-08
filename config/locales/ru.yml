@@ -13,6 +13,7 @@ ru:
       apply_light_theme: "Применить светлую тему"
       apply_dark_theme: "Применить темную тему"
       apply_ginger_theme: "Применить оранжевую тему"
+      search: "Поиск"
   layouts:
       application:
         title: "Краудфандинг"
