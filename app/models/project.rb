@@ -1,3 +1,3 @@
 class Project < ApplicationRecord
-  belongs_to :users, optional: true
+  belongs_to :users
 end

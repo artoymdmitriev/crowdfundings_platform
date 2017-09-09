@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
-  has_one :passport
+  has_one :application
 
   def amount_of_projects
     self.projects.count

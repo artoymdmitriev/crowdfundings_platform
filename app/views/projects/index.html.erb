@@ -1,8 +1,6 @@
 <% @projects.each do |project| %>
-  <%= project.name %>
+  <div class="container">
+    <%= project.name %>
     <%= project.user_id %>
-<% end %>
-
-<% if current_user.try(:admin?) %>
-    <%= Date.today %>
+  </div>
 <% end %>

@@ -1,0 +1,21 @@
+<h2>Apply to become a checked user</h2>
+
+<%= form_for @project do |f| %>
+    <div class="field">
+      <%= f.label "name" %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label "description" %><br />
+      <%= f.text_field :description %>
+    </div>
+    <div class="field">
+      <%= f.label "pic_link" %><br />
+      <%= f.text_field :pic_link %>
+    </div>
+    <div class="field">
+      <%= f.label "raitings" %><br />
+      <%= f.text_field :raitings %>
+    </div>
+    <%= f.submit "Apply" %>
+<% end %>

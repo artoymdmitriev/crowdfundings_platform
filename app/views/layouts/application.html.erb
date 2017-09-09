@@ -2,13 +2,14 @@
 <html>
   <head>
     <title><%= t '.title' %></title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag @theme, media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -37,9 +38,14 @@
     <![endif]-->
   </head>
 
-  <%= render '/shared/navbar' %>
-
-  <body class="container">
-    <%= yield %>
+  <body>
+    <%= render '/shared/navbar' %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

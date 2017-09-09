@@ -1,0 +1,25 @@
+<h2>Apply to become a checked user</h2>
+
+<%= form_for @application do |f| %>
+    <div class="field">
+      <%= f.label "name" %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label "surname" %><br />
+      <%= f.text_field :surname %>
+    </div>
+    <div class="field">
+      <%= f.label "pic_link" %><br />
+      <%= f.text_field :pic_link %>
+    </div>
+    <div class="field">
+      <%= f.label "birthday" %><br />
+      <%= f.text_field :birthday %>
+    </div>
+    <div class="field">
+      <%= f.label "pic_link" %><br />
+      <%= f.text_field :comment %>
+    </div>
+    <%= f.submit "Apply" %>
+<% end %>

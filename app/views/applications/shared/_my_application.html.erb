@@ -1,0 +1,3 @@
+<% if !current_user.nil? && !current_user.application.nil? %>
+    <div class="container">My application status is: <%= current_user.application.is_confirmed %></div>
+<% end %>
