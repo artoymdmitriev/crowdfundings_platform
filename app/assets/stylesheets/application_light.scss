@@ -14,24 +14,11 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "application_basic";
 
 body {
-  background-color: #FFFF;
+  background-color: #FFFFFF;
 }
 .btn-submit {
   color: #F7F7F7;
-}
-
-.pretty th .current {
-  padding-right: 12px;
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-.pretty th .asc {
-  background-image: url(/images/up_arrow.gif);
-}
-
-.pretty th .desc {
-  background-image: url(/images/down_arrow.gif);
 }
