@@ -1,6 +1,9 @@
 <h1>List of Users</h1>
 
 <%= form_tag change_users_path, method: :post do %>
+    <%= submit_tag (I18n.t :block_action) %>
+    <%= submit_tag (I18n.t :unblock_action) %>
+    <%= submit_tag (I18n.t :delete_action) %>
     <table class="table table-condensed">
       <tr>
         <th></th>
@@ -25,7 +28,4 @@
           </tr>
       <% end %>
     </table>
-    <%= submit_tag (I18n.t :block_action) %>
-    <%= submit_tag (I18n.t :unblock_action) %>
-    <%= submit_tag (I18n.t :delete_action) %>
 <% end %>
