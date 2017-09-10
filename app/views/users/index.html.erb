@@ -1,9 +1,9 @@
 <h1>List of Users</h1>
 
 <%= form_tag change_users_path, method: :post do %>
-    <%= submit_tag (I18n.t :block_action) %>
-    <%= submit_tag (I18n.t :unblock_action) %>
-    <%= submit_tag (I18n.t :delete_action) %>
+    <%= submit_tag (I18n.t :block_action), class: 'btn' %>
+    <%= submit_tag (I18n.t :unblock_action), class: 'btn'  %>
+    <%= submit_tag (I18n.t :delete_action), class: 'btn'  %>
     <table class="table table-condensed">
       <tr>
         <th></th>
@@ -17,7 +17,7 @@
       </tr>
       <% @users.each do |user| %>
           <tr class="<%= user.application.nil? ? 'default' : 'success' %>">
-            <td><%= check_box_tag("change[#{user.id}]",1) %></td>
+            <td><%= check_box_tag("change[#{user.id}]", 1, false, style: "width: 20px; height: 20px;") %></td>
             <td><%= user.email %></td>
             <td><%= user.role %></td>
             <td class="hidden-xs hidden-sm"><%= user.created_at %></td>

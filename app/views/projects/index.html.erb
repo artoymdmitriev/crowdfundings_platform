@@ -1,8 +1,22 @@
-<% @projects.each do |project| %>
-  <div class="container">
-    <h3>Project's name: <%= project.name %></h3>
-
-    Author's id: <%= project.user_id %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="content-grid mdl-grid">
+        <% @projects.each do |project| %>
+          <div class="mdl-cell">
+            <h3>Project's name: <%= link_to project.name, project %></h3>
+            Author's id: <%= project.user_id %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="container">
+        <%= render '/layouts/shared/last_registered_users' %>
+      </div>
+      <div class="container">
+        <%= render '/layouts/shared/tags_cloud' %>
+      </div>
+    </div>
   </div>
-    <br>
-<% end %>
+</div>

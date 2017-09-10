@@ -7,8 +7,14 @@ class UsersController < AdminController
   end
 
   def change
+    #TODO refactor (too many lines)
     method = params[:commit]
     users_in_hash = params[:change]
+    if users_in_hash.nil?
+      redirect_to :back
+      flash[:error] = 'You must choose at least one user'
+      return
+    end
     if method == (I18n.t :block_action)
       block users_in_hash
     elsif method == (I18n.t :unblock_action)

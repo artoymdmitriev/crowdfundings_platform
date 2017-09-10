@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, except: :index
-  before_action :check_user, except: [:index, :my_projects]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_user, except: [:index, :my_projects, :show]
 
   def index
     @projects = Project.all
@@ -19,6 +19,14 @@ class ProjectsController < ApplicationController
     @project = Project.new(params[:project])
     @project.user_id = current_user.id
     save_project
+  end
+
+  def show
+    @project = Project.find(params[:id])
+  end
+
+  def edit
+    @project = Project.find(params[:id])
   end
 
   private

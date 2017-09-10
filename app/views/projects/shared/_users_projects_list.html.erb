@@ -1,5 +1,5 @@
 <% @users_projects.each do |project| %>
     <div class="container">
-      <%= project.name %>
+      <%= link_to project.name, edit_project_path(project) %>
     </div>
 <% end %>

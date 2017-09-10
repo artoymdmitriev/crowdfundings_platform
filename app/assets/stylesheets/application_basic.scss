@@ -14,10 +14,24 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 body {
   background-color: #FFC450;
 }
 .btn-submit {
   color: #F7F7F7;
+}
+
+.project-properties {
+  font-size: 20pt;
+}
+
+.project-properties-small {
+  font-size: 15pt;
+  color: #666666;
+}
+
+.content-grid {
+  max-width: 960px;
 }
