@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :check_user, except: [:index, :my_projects]
+
   def index
     @projects = Project.all
   end
@@ -16,10 +18,22 @@ class ProjectsController < ApplicationController
     params.permit!
     @project = Project.new(params[:project])
     @project.user_id = current_user.id
+    save_project
+  end
+
+  private
+  def check_user
+    unless current_user.application.is_confirmed
+      flash[:error] = 'You are not a confirmed user'
+      redirect_to '/applications/new'
+    end
+  end
+
+  def save_project
     if @project.save!
       redirect_to root_path
     else
-      puts "BLABLABLA"
+      flash[:error] = 'Error saving new project'
     end
   end
 end

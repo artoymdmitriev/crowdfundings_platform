@@ -42,8 +42,17 @@
     <%= render '/shared/navbar' %>
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
+          <%= bootstrap_flash %>
           <%= yield %>
+        </div>
+        <div class="col-md-3">
+          <div class="container">
+            <%= render '/layouts/shared/last_registered_users' %>
+          </div>
+          <div class="container">
+            <%= render '/layouts/shared/tags_cloud' %>
+          </div>
         </div>
       </div>
     </div>

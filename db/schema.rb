@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909212348) do
+ActiveRecord::Schema.define(version: 20170910121918) do
 
   create_table "applications", force: :cascade do |t|
     t.string  "name",                         null: false
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20170909212348) do
     t.integer "user_id"
     t.boolean "is_confirmed", default: false, null: false
     t.index ["user_id"], name: "index_applications_on_user_id", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "text"
+    t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|

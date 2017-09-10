@@ -1,6 +1,8 @@
 <% @projects.each do |project| %>
   <div class="container">
-    <%= project.name %>
-    <%= project.user_id %>
+    <h3>Project's name: <%= project.name %></h3>
+
+    Author's id: <%= project.user_id %>
   </div>
+    <br>
 <% end %>
