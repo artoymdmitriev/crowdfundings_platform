@@ -22,7 +22,8 @@ class ApplicationsController < ApplicationController
     params.permit!
     @application = Application.new(params[:application])
     @application.user_id = current_user.id
-    if @application.save
+    #TODO catch unique constrait
+    if @application.save!
       redirect_to root_path
     else
       puts "YOU ARE STUPID"

@@ -16,10 +16,10 @@ class ProjectsController < ApplicationController
     params.permit!
     @project = Project.new(params[:project])
     @project.user_id = current_user.id
-    if @project.save
+    if @project.save!
       redirect_to root_path
     else
-      puts "YOU ARE STUPID"
+      puts "BLABLABLA"
     end
   end
 end
