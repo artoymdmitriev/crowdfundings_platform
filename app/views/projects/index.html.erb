@@ -3,20 +3,20 @@
     <div class="col-md-9">
       <div class="content-grid mdl-grid">
         <% @projects.each do |project| %>
-          <div class="mdl-cell">
-            <h3>Project's name: <%= link_to project.name, project %></h3>
+          <div class="mdl-card mdl-cell mdl-cell--6-col mdl-shadow--16dp project-cell">
+            <%= link_to project do %>
+              <%= image_tag 'http://placebear.com/1280/720', style: 'max-width: 100%' %>
+            <% end %>
+            <h3 align="center"><%= link_to project.name, project %></h3>
             Author's id: <%= project.user_id %>
           </div>
         <% end %>
       </div>
     </div>
     <div class="col-md-3">
-      <div class="container">
         <%= render '/layouts/shared/last_registered_users' %>
-      </div>
-      <div class="container">
+      <hr>
         <%= render '/layouts/shared/tags_cloud' %>
-      </div>
     </div>
   </div>
 </div>

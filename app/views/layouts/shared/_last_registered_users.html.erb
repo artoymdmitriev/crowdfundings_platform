@@ -1,10 +1,9 @@
 <h3>Last registered users:</h3>
 
 <% last_registered_users.each do |user| %>
-  <div class="container">
+  <div class="user">
     <div><%= user.email %></div>
     <div><%= user.created_at %></div>
     <br>
   </div>
 <% end %>
-<hr>
