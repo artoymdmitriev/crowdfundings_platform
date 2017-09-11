@@ -1,45 +1,40 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-      Project by username
-      <h1>Project name</h1>
+      Project by <%= user_name_and_surname @project %>
+      <h1><%= @project.name %></h1>
     </div>
   </div>
   <div class="row">
     <div class="col-md-9">
-      <img src="http://placebear.com/1280/720" alt="Placeholder" style="max-width: 100%">
+      <img src="<%= @project.pic_link %>" alt="Placeholder" style="max-width: 100%">
     </div>
     <div class="col-md-3">
       <div class="project-properties">
         <i class="glyphicon glyphicon-time"></i>
-        13.01.1998
+        <%= @project.fundings_deadline %>
       </div>
       <div class="project-properties">
         <i class="fa fa-money"></i>
-        15$
+        <%= count_money_pledged @project %>$
       </div>
       <div class="project-properties-small">
-        pledged of 16$ goal
+        pledged of <%= @project.goal %>$ goal
       </div>
       <div class="project-properties">
         Failed
       </div>
       <div class="donate">
-        <%= render partial: '/payments/shared/input_field', locals: {project_id: @project.id} %>
+        <%= button_to 'Donate', controller: 'payments', action: 'new', project_id: @project.id %>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-9">
-      <div>
-        <h1>
-          Description:
-        </h1>
-      </div>
+      <h2>About this project</h2>
       <div class="description">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <%= kramdown @project.description %>
       </div>
     </div>
   </div>
 </div>
-<%= @project.fundings_deadline %>

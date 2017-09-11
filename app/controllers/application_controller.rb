@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :blocked?
   before_filter :set_locale
   before_filter :set_theme
+
+  def blocked?
+    if !current_user.nil? && current_user.present? && current_user.is_blocked?
+      sign_out current_user
+      flash[:error] = "This account has been blocked..."
+    end
+  end
 
   private
   def set_locale

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: artemka-co
+  api_key: '413587258583749'
+  api_secret: _w9dGzv-hMebR4Pcz0TIKFg6JLQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: artemka-co
+  api_key: '413587258583749'
+  api_secret: _w9dGzv-hMebR4Pcz0TIKFg6JLQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: artemka-co
+  api_key: '413587258583749'
+  api_secret: _w9dGzv-hMebR4Pcz0TIKFg6JLQ
+  enhance_image_tag: true
+  static_image_support: false

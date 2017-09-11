@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170910231011) do
+ActiveRecord::Schema.define(version: 20170911184509) do
 
   create_table "applications", force: :cascade do |t|
     t.string  "name",                         null: false
@@ -50,11 +50,12 @@ ActiveRecord::Schema.define(version: 20170910231011) do
     t.date     "fundings_deadline"
     t.text     "description"
     t.string   "pic_link"
-    t.integer  "raitings",          default: 0
-    t.boolean  "is_funded",         default: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.integer  "raitings",                                   default: 0
+    t.boolean  "is_funded",                                  default: false
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
     t.integer  "user_id"
+    t.decimal  "goal",              precision: 12, scale: 3
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

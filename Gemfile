@@ -40,6 +40,8 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'activemerchant', '~> 1.71'
 gem 'braintree', '~> 2.78'
 gem 'dotenv', '~> 2.0'
+gem 'cloudinary', '~> 1.8', '>= 1.8.1'
+gem 'kramdown', '~> 1.15'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

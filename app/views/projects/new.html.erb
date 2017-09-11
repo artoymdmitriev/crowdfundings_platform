@@ -2,25 +2,36 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-6">
       <%= form_for @project do |f| %>
           <div class="field">
             <%= f.label "name" %><br />
-            <%= f.text_field :name %>
+            <%= f.text_field :name, class: 'form-control' %>
           </div>
           <div class="field">
             <%= f.label "description" %><br />
-            <%= f.text_field :description %>
+            <%= f.text_area :description, class: 'form-control' %>
           </div>
           <div class="field">
             <%= f.label "pic_link" %><br />
-            <%= f.text_field :pic_link %>
+            <div class="input-group">
+            <span class="input-group-btn">
+              <span class="btn btn-small btn-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
+              <%= f.file_field :pic_link, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+            </span>
+              <span class="form-control"></span>
+            </div>
           </div>
           <div class="field">
-            <%= f.label "raitings" %><br />
-            <%= f.text_field :raitings %>
+            <%= f.label "fundings_deadline" %><br />
+            <%= f.date_field :fundings_deadline, class: 'form-control' %>
           </div>
-          <%= f.submit "Apply" %>
+          <div class="field">
+            <%= f.label "goal" %><br />
+            <%= f.number_field :goal, step: 0.1, class: 'form-control' %>
+          </div>
+          <br />
+          <%= f.submit "Create", class: 'btn btn-success' %>
       <% end %>
     </div>
   </div>

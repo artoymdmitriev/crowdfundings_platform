@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="checkout container">
     <div class="content">
-      <%= form_tag("/payments", method: "post", id: "payment-form") do %>
+      <%= form_tag("/payments", method: "post", id: "payment-form", project_id: @project_id) do %>
           <section>
             <label for="amount">
               <span class="input-label">Amount</span>
@@ -16,7 +16,7 @@
           </section>
 
           <input type="hidden" id="nonce" name="payment_method_nonce" />
-          <button class="button" type="submit"><span>Test Transaction</span></button>
+          <button class="button" type="submit"><span>Donate</span></button>
       <% end %>
 
     </div>

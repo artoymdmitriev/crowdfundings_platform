@@ -12,7 +12,6 @@ class PaymentsController < ApplicationController
 
   def new
     @client_token = Braintree::ClientToken.generate
-    #FIX PROJECT ID
     @project_id = params[:project_id]
   end
 

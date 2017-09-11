@@ -1,1 +1,1 @@
-<td><%= button_to '+', controller: 'payments', action: 'new', project_id: @project_id %></td>
+<%= button_to 'Donate', new_payment_path, project_id: :project_id, :class => 'btn btn-large btn-primary' %>
