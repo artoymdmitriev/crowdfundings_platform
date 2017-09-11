@@ -1,4 +1,4 @@
-class DeviseCreateUsers < ActiveRecord::Migration[5.0]https://hidden-shelf-22191.herokuapp.com/
+class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       ## Database authenticatable

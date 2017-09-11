@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @money_earned = count_money
   end
 
   def edit
