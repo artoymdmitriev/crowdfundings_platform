@@ -5,15 +5,4 @@ class PaymentsControllerTest < ActionDispatch::IntegrationTest
     get payments_index_url
     assert_response :success
   end
-
-  test "should get create" do
-    get payments_create_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get payments_new_url
-    assert_response :success
-  end
-
 end

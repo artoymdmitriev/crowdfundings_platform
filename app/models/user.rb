@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
   has_many :comments
+  has_many :payments
   has_one :application
 
   def amount_of_projects
