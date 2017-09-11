@@ -9,4 +9,8 @@ module ApplicationHelper
   def last_registered_users
     @last_registered_users = User.last(5)
   end
+
+  def alert_string(alert)
+    alert.is_a?(Array) ? safe_join(alert, "<br />".html_safe) : alert
+  end
 end

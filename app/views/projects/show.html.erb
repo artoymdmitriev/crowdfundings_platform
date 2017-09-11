@@ -24,6 +24,9 @@
       <div class="project-properties">
         Failed
       </div>
+      <div class="donate">
+        <%= render partial: '/payments/shared/input_field', locals: {project_id: @project.id} %>
+      </div>
     </div>
   </div>
   <div class="row">

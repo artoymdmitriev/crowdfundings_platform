@@ -37,6 +37,9 @@ gem 'sass-rails', '>= 3.2'
 gem 'devise', '~> 4.3'
 gem 'twitter-bootstrap-rails'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+gem 'activemerchant', '~> 1.71'
+gem 'braintree', '~> 2.78'
+gem 'dotenv', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
