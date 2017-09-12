@@ -9,4 +9,6 @@ class Project < ApplicationRecord
   validates :pic_link, presence: true
   validates :user_id, presence: true
   validates :goal, presence: true, numericality: { greater_than_or_equal_to: 1 }
+  validates :min_payment, presence: true, numericality: { greater_than_or_equal_to: 1 }
+  validates :max_payment, presence: true, numericality: { greater_than: :min_payment }
 end
