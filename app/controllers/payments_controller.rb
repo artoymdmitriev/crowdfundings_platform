@@ -60,11 +60,12 @@ class PaymentsController < ApplicationController
     end
   end
 
+  #TODO FIX PROJECT ID
   private
   def save_to_db transaction_object
     p = Payment.new(last4: transaction_object.credit_card_details.last_4,
                     amount: transaction_object.amount,
-                    project_id: 1,
+                    project_id: Project.first.id,
                     user_id: current_user.id)
     p.save!
   end
