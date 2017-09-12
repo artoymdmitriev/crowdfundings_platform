@@ -3,14 +3,14 @@
 # incrementally modify your database, and then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create.html.erb the application database on another
+# database schema. If you need to create the application database on another
 # system, you should be using db:schema:load, not running all the migrations
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911184509) do
+ActiveRecord::Schema.define(version: 20170912210852) do
 
   create_table "applications", force: :cascade do |t|
     t.string  "name",                         null: false
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20170911184509) do
     t.datetime "updated_at",                                                 null: false
     t.integer  "user_id"
     t.decimal  "goal",              precision: 12, scale: 3
+    t.decimal  "min_payment",       precision: 12, scale: 3
+    t.decimal  "max_payment",       precision: 12, scale: 3
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
