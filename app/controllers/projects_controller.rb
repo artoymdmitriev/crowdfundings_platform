@@ -23,8 +23,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(params[:project])
     @project.user_id = current_user.id
     uploaded_io = params[:project][:pic_link]
-    upload_image uploaded_io.path
-    @project.pic_link = @upload["url"]
+    upload_image uploaded_io.path unless uploaded_io.nil?
     save_project
   end
 
@@ -62,10 +61,10 @@ class ProjectsController < ApplicationController
   end
 
   def save_project
-    if @project.save!
+    if @project.save
       redirect_to root_path
     else
-      flash[:error] = 'Error saving new project'
+      render :new
     end
   end
 
@@ -78,7 +77,8 @@ class ProjectsController < ApplicationController
   end
 
   def upload_image file
-    @upload = Cloudinary::Uploader.upload file,
+    upload = Cloudinary::Uploader.upload file,
                                           :tags => "basic_sample"
+    @project.pic_link = upload["url"]
   end
 end

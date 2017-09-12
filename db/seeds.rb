@@ -3,5 +3,5 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create.html.erb([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create.html.erb(name: 'Luke', movie: movies.first)

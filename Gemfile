@@ -42,6 +42,7 @@ gem 'braintree', '~> 2.78'
 gem 'dotenv', '~> 2.0'
 gem 'cloudinary', '~> 1.8', '>= 1.8.1'
 gem 'kramdown', '~> 1.15'
+gem 'validates_timeliness', '~> 4.0', '>= 4.0.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

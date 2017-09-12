@@ -12,4 +12,3 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( application_light.scss )
 Rails.application.config.assets.precompile += %w( application_dark.scss )
 Rails.application.config.assets.precompile += %w( application_ginger.scss )
-

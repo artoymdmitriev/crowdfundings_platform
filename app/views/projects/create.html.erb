@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      Project by <%= user_name_and_surname @project %>
+      <h1><%= @project.name %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <img src="<%= @project.pic_link %>" alt="Placeholder" style="max-width: 100%">
+    </div>
+    <div class="col-md-3">
+      <div class="project-properties">
+        <i class="glyphicon glyphicon-time"></i>
+        <%= @project.fundings_deadline %>
+      </div>
+      <div class="project-properties">
+        <i class="fa fa-money"></i>
+        <%= count_money_pledged @project %>$
+      </div>
+      <div class="project-properties-small">
+        pledged of <%= @project.goal %>$ goal
+      </div>
+      <div class="project-properties">
+        Failed
+      </div>
+      <div class="donate">
+        <%= button_to 'Donate', controller: 'payments', action: 'new', project_id: @project.id %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <h2>About this project</h2>
+      <div class="description">
+        <%= kramdown @project.description %>
+      </div>
+    </div>
+  </div>
+</div>
