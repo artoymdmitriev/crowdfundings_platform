@@ -1,0 +1,7 @@
+<div class="comment">
+  <div class="author">
+    <%= get_author_name comment.user_id %>
+  </div>
+  <div class="posted-date"><%= time_ago_in_words(comment.created_at) %></div>
+  <div class="text"><h5><%= comment.text %></h5></div>
+</div>

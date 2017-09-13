@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     end
   end
   resources :applications
-  resources :projects
+  resources :projects do
+    resources :comments
+  end
   resources :payments
   post 'payments/new'
+
+  resources :comments
+  resources :projects, has_many: :comments
 end
