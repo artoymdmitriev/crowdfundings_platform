@@ -1,7 +1,8 @@
-<% puts "| #{comment.inspect} |" + comment.text.nil?.to_s %>
-<% comment.destroy if comment.text.nil? %>
-<div>
-<%= comment.commentable_id %>
-<%= comment.text unless comment.text.nil? %>
-<%= comment.id unless comment.text.nil? %>
+<div class="comment">
+  <div class="author">
+    <%= get_author_name comment.user_id %>
+  </div>
+  <div class="posted-date"><%= time_ago_in_words(comment.created_at) %></div>
+  <div class="text"><h5><%= comment.text %></h5></div>
+
 </div>
