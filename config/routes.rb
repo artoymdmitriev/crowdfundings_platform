@@ -20,6 +20,16 @@ Rails.application.routes.draw do
     end
   end
 
+  shallow do
+    resources :users do
+      resources :applications do
+        member do
+          get 'check'
+        end
+      end
+    end
+  end
+
   resources :payments
   post 'payments/new'
 

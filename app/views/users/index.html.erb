@@ -16,10 +16,14 @@
         <th><%= sortable 'is_blocked', 'Is Blocked' %></th>
       </tr>
       <% @users.each do |user| %>
-          <tr class="<%= user.application.nil? ? 'default' : 'success' %>">
+          <tr class="<%= user.application.nil? || user.application.is_checked ? 'default' : 'success' %>">
             <td><%= check_box_tag("change[#{user.id}]", 1, false, style: "width: 20px; height: 20px;") %></td>
             <td><%= user.email %></td>
-            <td><%= user.role %></td>
+            <% if check_application_existence user %>
+                <td><%= link_to user.role, check_application_path(user) %></td>
+            <% else %>
+                <td><%= user.role %></td>
+            <% end %>
             <td class="hidden-xs hidden-sm"><%= user.created_at %></td>
             <td class="hidden-xs hidden-sm"><%= user.last_sign_in_at %></td>
             <td class="hidden-xs hidden-sm"><%= user.amount_of_projects %></td>

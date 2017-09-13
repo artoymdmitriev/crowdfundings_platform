@@ -1,0 +1,9 @@
+<%= @application.name %>
+<%= @application.surname %>
+
+<% unless @application.is_checked %>
+  <%= form_for @application do |f| %>
+      <%= submit_tag 'Allow', name: 'allow', class: 'btn btn-success' %>
+      <%= submit_tag 'Deny', name: 'deny', class: 'btn btn-danger' %>
+  <% end %>
+<% end %>

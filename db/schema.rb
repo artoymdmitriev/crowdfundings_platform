@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913110003) do
+ActiveRecord::Schema.define(version: 20170913203840) do
 
   create_table "applications", force: :cascade do |t|
     t.string  "name",                         null: false
@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20170913110003) do
     t.string  "pic_link",                     null: false
     t.date    "birthday",                     null: false
     t.text    "comment"
-    t.integer "user_id"
+    t.integer "user_id",                      null: false
     t.boolean "is_confirmed", default: false, null: false
+    t.boolean "is_checked",   default: false, null: false
     t.index ["user_id"], name: "index_applications_on_user_id", unique: true
   end
 

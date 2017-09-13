@@ -1,8 +1,10 @@
 class ApplicationsController < ApplicationController
+  include ApplicationsHelper
   before_action :authenticate_user!
+  before_action :check_admin, only: :index
+  before_action :check_if_checked_earlier, only: :update
 
   def index
-    check_admin
     @applications = Application.all
   end
 
@@ -30,10 +32,42 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def check
+    @application = Application.find_by(user_id: params[:id])
+  end
+
+  def update
+    @application = Application.find_by(id: params[:id])
+    update_params
+    update_role
+    redirect_to request.referrer
+  end
+
   private
   def check_admin
     unless current_user.admin?
-      redirect_back fallback_location: root_path
+      redirect_to request.referrer
     end
+  end
+
+  def check_if_checked_earlier
+    if Application.find_by(id: params[:id]).is_checked
+      flash[:error] = 'You can\' perform this action. User has alread been checked.'
+      redirect_to request.referrer
+    end
+  end
+
+  def update_params
+    if params[:deny]
+      @application.update(is_confirmed: false)
+    elsif params[:allow]
+      @application.update(is_confirmed: true)
+    end
+    @application.update(is_checked: true)
+  end
+
+  def update_role
+    user = User.find(@application.user_id)
+    user.update(role: 'checked')
   end
 end
