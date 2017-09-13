@@ -27,6 +27,14 @@
       <div class="donate">
         <%= button_to 'Donate', controller: 'payments', action: 'new', project_id: @project.id %>
       </div>
+
+      <% unless current_user.nil? || current_user.id != @project.user_id %>
+          <div class="admin_tools">
+            <%= link_to 'Add news item', new_project_news_item_path(@project), class: 'btn btn-success' %>
+            <%= link_to 'Edit project', edit_project_path(@project), class: 'btn btn-success' %>
+            <%= link_to 'Delete', @project, method: :delete, class: 'btn btn-success' %>
+          </div>
+      <% end %>
     </div>
   </div>
   <div class="row">
@@ -37,10 +45,6 @@
       </div>
     </div>
   </div>
-
-  <% unless current_user.nil? || current_user.id != @project.user_id %>
-      <%= link_to 'Add news item', new_project_news_item_path(@project), class: 'btn btn-success' %>
-  <% end %>
 
   <div class="row">
     <div class="col-md-9">

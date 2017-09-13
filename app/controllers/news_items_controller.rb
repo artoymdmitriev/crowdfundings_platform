@@ -1,7 +1,6 @@
 class NewsItemsController < ApplicationController
   before_action :set_project
   before_action :load_news_item, only: [:show, :edit, :destroy, :update]
-  before_action :validate_user, only: [:new, :create, :edit, :destroy]
 
   def index
     @news_items = @project.news_items
