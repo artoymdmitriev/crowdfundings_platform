@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :projects do
     resources :comments
   end
+  resources :news_items do
+    resources :comments
+  end
   resources :payments
   post 'payments/new'
 
