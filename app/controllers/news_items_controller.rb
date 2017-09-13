@@ -13,6 +13,7 @@ class NewsItemsController < ApplicationController
   def create
     @news_item = @project.news_items.create(news_item_params)
     @news_item.update(user_id: current_user.id)
+    redirect_to project_path(@project)
   end
 
   def show
@@ -30,9 +31,7 @@ class NewsItemsController < ApplicationController
 
   private
   def set_project
-    puts "//////////////////////////////// "
     @project = current_user.projects.find(params[:project_id])
-    puts @project.id.to_s
   end
 
   def load_news_item
