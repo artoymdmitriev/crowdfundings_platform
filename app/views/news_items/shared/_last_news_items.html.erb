@@ -1,9 +1,11 @@
-<h3>Last news of projects:</h3>
+<div class="news-items">
+  <h3>Last news of projects:</h3>
 
-<% last_news_items.each do |news_item| %>
-    <div class="news_item">
-      <div><%= news_item.text %></div>
-      <div><%= news_item.created_at %></div>
-      <br>
-    </div>
-<% end %>
+  <% last_news_items.each do |news_item| %>
+      <div class="news_item">
+        <div><%= news_item.text %></div>
+        <div><%= news_item.created_at %></div>
+        <br>
+      </div>
+  <% end %>
+</div>
