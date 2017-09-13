@@ -1,6 +1,6 @@
 <%= @application.name %>
 <%= @application.surname %>
-
+<%= image_tag @application.passport_image.url  %>
 <% unless @application.is_checked %>
   <%= form_for @application do |f| %>
       <%= submit_tag 'Allow', name: 'allow', class: 'btn btn-success' %>

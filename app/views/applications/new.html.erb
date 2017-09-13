@@ -1,6 +1,6 @@
 <h2>Apply to become a checked user</h2>
 
-<%= form_for @application do |f| %>
+<%= form_for @application, html: { multipart: true } do |f| %>
     <div class="field">
       <%= f.label "name" %><br />
       <%= f.text_field :name %>
@@ -10,8 +10,8 @@
       <%= f.text_field :surname %>
     </div>
     <div class="field">
-      <%= f.label "pic_link" %><br />
-      <%= f.text_field :pic_link %>
+      <%= f.label "image" %><br>
+      <%= f.file_field :passport_image %>
     </div>
     <div class="field">
       <%= f.label "birthday" %><br />
