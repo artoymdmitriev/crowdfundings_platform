@@ -7,7 +7,7 @@ module MainHelper
     @users = User.last(5)
   end
 
-  # def last_news
-  #   @news = NewsItem.last(5)
-  # end
+  def last_news_items
+    @news = NewsItem.last(5)
+  end
 end

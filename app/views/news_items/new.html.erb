@@ -1,0 +1,12 @@
+<%= form_for @news_item do |f| %>
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Create new news_item</h2>
+      <div class="field">
+        <%= f.label "Text" %>
+        <%= f.text_area :text, class: 'form-control' %>
+      </div>
+      <br />
+      <%= hidden_field_tag 'project_id', @project.id %>
+      <%= f.submit "Create", class: 'btn btn-success btn-block' %>
+    </div>
+<% end %>
