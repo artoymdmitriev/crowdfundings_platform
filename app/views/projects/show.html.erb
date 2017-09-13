@@ -37,6 +37,13 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-9">
+      <h2>Comments:</h2>
+      <div class="comments">
+        <%= render '/comments/shared/comment_field' %>
+        <%= render @project.comments %>
+      </div>
+    </div>
+  </div>
 </div>
-<%= render @project.comments %>
-<%= render '/comments/shared/comment_field' %>

@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
-  include CommentsHelper
-
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.create(params[:comment].permit(:text))
-    @comment.update(user_id: current_user.id)
+    @comment.user_id = current_user.id
+    @comment.save
     redirect_to :back
   end
 
