@@ -5,5 +5,6 @@ module CommentsHelper
     unless author.application.nil?
       author_name = "#{author.application.name} #{author.application.surname}"
     end
+    return author_name
   end
 end

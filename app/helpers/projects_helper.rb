@@ -8,10 +8,7 @@ module ProjectsHelper
   end
 
   def user_name_and_surname project
-    puts '--------------' + project.inspect
-    user = User.find(project.user_id)
-    puts '--------------' + user.inspect
-    application = Application.find_by_user_id(user.id)
+    application = Application.find_by_user_id(project.user_id)
     return application.name + ' ' + application.surname
   end
 
