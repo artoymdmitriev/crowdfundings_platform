@@ -40,6 +40,7 @@ class ApplicationsController < ApplicationController
     @application = Application.find_by(id: params[:id])
     update_params
     update_role
+    create_notification @application
     redirect_to request.referrer
   end
 

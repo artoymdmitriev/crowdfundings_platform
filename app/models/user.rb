@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :payments
   has_one :application
+  has_many :notifications
 
   def amount_of_projects
     self.projects.count

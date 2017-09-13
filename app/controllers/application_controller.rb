@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   protect_from_forgery with: :exception
   before_action :blocked?
   before_filter :set_locale
   before_filter :set_theme
+  before_action :check_notifications
 
   def blocked?
     if !current_user.nil? && current_user.present? && current_user.is_blocked?
