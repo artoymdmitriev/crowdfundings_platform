@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
       <div class="content-grid mdl-grid">
         <% @projects.each do |project| %>
-          <div class="mdl-card mdl-cell mdl-cell--6-col mdl-shadow--16dp project-cell">
+          <div class="mdl-card mdl-cell mdl-cell--4-col mdl-shadow--16dp project-cell">
             <%= link_to project do %>
               <%= image_tag project.pic_link, style: 'max-width: 100%' %>
             <% end %>
@@ -16,11 +16,6 @@
           </div>
         <% end %>
       </div>
-    </div>
-    <div class="col-md-3">
-        <%= render '/layouts/shared/last_registered_users' %>
-      <hr>
-        <%= render '/layouts/shared/tags_cloud' %>
     </div>
   </div>
 </div>
