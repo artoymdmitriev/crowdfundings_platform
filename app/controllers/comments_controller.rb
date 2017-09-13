@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.create(params[:comment].permit(:text))
@@ -15,5 +17,12 @@ class CommentsController < ApplicationController
       end
     end
     nil
+  end
+
+  def check_for_rights
+    unless !current_user.nil? && (@comment.user_id == current_user.id || current_user.role == 'admin')
+      flash[:error] = 'You are not allowed to edit another\'s comments'
+      redirect_to '/projects/'
+    end
   end
 end
