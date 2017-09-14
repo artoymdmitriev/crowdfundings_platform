@@ -3,8 +3,8 @@
 
   <% last_news_items.each do |news_item| %>
       <div class="news_item">
-        <div><%= news_item.text %></div>
-        <div><%= news_item.created_at %></div>
+        <div><%= link_to news_item.text, news_item_path(news_item.id) %></div>
+        <div><%= news_item.created_at.strftime("%F %T") %></div>
         <br>
       </div>
   <% end %>

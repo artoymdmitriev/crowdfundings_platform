@@ -14,10 +14,12 @@ Rails.application.routes.draw do
     resources :news_items
   end
 
-  shallow do
-    resources :projects do
-      resources :news_items
-    end
+  resources :projects do
+    resources :news_items
+  end
+
+  resources :news_items do
+    resources :comments
   end
 
   shallow do

@@ -1,5 +1,5 @@
 class NewsItemsController < ApplicationController
-  before_action :set_project
+  before_action :set_project, except: [:index, :show]
   before_action :load_news_item, only: [:show, :edit, :destroy, :update]
 
   def index
@@ -44,6 +44,6 @@ class NewsItemsController < ApplicationController
   end
 
   def news_item_params
-    params.require(:news_item).permit(:text, :project_id)
+    params.require(:news_item).permit(:text)
   end
 end

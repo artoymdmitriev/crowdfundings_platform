@@ -4,7 +4,7 @@
   <% last_users.each do |user| %>
       <div class="user">
         <div><%= user.email %></div>
-        <div><%= user.created_at %></div>
+        <div><%= user.created_at.strftime("%F %T") %></div>
         <br>
       </div>
   <% end %>
