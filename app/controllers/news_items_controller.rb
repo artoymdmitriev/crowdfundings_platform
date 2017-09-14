@@ -1,5 +1,5 @@
 class NewsItemsController < ApplicationController
-  before_action :set_project, except: [:index, :show]
+  before_action :set_project, except: [:index, :show, :edit, :update]
   before_action :load_news_item, only: [:show, :edit, :destroy, :update]
 
   def index
@@ -21,6 +21,12 @@ class NewsItemsController < ApplicationController
   end
 
   def edit
+    @news_item = NewsItem.find(params[:id])
+  end
+
+  def update
+    @news_item = NewsItem.find(params[:id])
+    @news_item.update_attributes(news_item_params)
   end
 
   def destroy
