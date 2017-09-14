@@ -2,11 +2,10 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def create
-    @commentable = find_commentable
-    @comment = @commentable.comments.create(params[:comment].permit(:text))
+    @comment = find_commentable.comments.create(params[:comment].permit(:text))
     @comment.user_id = current_user.id
     @comment.save
-    redirect_to :back
+    redirect_back
   end
 
   private

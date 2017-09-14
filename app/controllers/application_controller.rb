@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_theme
   before_action :check_notifications
 
+  private
   def blocked?
     if !current_user.nil? && current_user.present? && current_user.is_blocked?
       sign_out current_user
@@ -13,7 +14,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  private
   def set_locale
     if language_change_necessary?
       I18n.locale = the_new_locale
