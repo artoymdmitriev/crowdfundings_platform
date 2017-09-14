@@ -24,3 +24,8 @@ ru:
   block_action: "Заблокировать"
   unblock_action: "Разблокировать"
   delete_action: "Удалить"
+
+  exception_handler:
+        not_found: "Ошибка 404: Похоже, у нас нет страницы, которую вы ищете..:("
+        unauthorized: "You need to login to continue"
+        internal_server_error: "This is a test to show the %{status} of the error"

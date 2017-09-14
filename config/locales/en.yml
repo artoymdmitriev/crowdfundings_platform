@@ -48,3 +48,8 @@ en:
       apply_light_theme: "Apply light theme"
       apply_dark_theme: "Apply dark theme"
       apply_ginger_theme: "Apply ginger theme"
+
+  exception_handler:
+      not_found: "404 Error: It seems like we haven't got the page you are looking for..:("
+      unauthorized: "You need to login to continue"
+      internal_server_error: "This is a test to show the %{status} of the error"
