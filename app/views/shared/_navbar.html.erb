@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'My projects', :controller => 'projects', :action => 'my_projects' if !current_user.nil? %></li>
+        <li><%= link_to 'My projects', :controller => 'projects', :action => 'my_projects' unless current_user.nil? %></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -46,19 +46,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t '.settings' %><span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= t '.language' %></li>
-            <li><%= link_to_unless_current (t '.english'), locale: 'en' %></li>
-            <li><%= link_to_unless_current (t '.russian'), locale: 'ru' %></li>
-            <li class="divider"></li>
-            <li><%= t '.theme' %></li>
-            <li><%= link_to_unless_current (t '.apply_light_theme'), theme: 'application_light' %></li>
-            <li><%= link_to_unless_current (t '.apply_dark_theme'), theme: 'application_dark' %></li>
-            <li><%= link_to_unless_current (t '.apply_ginger_theme'), theme: 'application_ginger' %></li>
-          </ul>
-        </li>
+        <li><%= link_to 'Settings', :controller => 'settings', :action => 'my_settings' %></li>
       </ul>
 
       <%= render '/shared/navbar_admin_actions' if !current_user.nil? && current_user.admin? %>

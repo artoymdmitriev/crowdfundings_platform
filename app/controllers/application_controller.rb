@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   protect_from_forgery with: :exception
   before_action :blocked?
-  before_filter :set_locale
-  before_filter :set_theme
+  before_action :set_locale
+  before_action :set_theme
   before_action :check_notifications
 
   def blocked?
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def the_new_locale
-    new_locale = (params[:locale] || extract_locale_from_accept_language_header)
+    new_locale = (params[:locale])
     ['en', 'ru'].include?(new_locale) ? new_locale : I18n.default_locale.to_s
   end
 

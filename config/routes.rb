@@ -36,4 +36,5 @@ Rails.application.routes.draw do
   resources :comments
   resources :projects, has_many: :comments
   resources :news_items
+  get '/settings', to: 'settings#my_settings'
 end
