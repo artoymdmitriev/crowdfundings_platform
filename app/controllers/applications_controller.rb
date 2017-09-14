@@ -39,7 +39,6 @@ class ApplicationsController < ApplicationController
   def update
     @application = Application.find_by(id: params[:id])
     update_params
-    update_role
     create_notification @application
     redirect_to request.referrer
   end
@@ -63,6 +62,7 @@ class ApplicationsController < ApplicationController
       @application.update(is_confirmed: false)
     elsif params[:allow]
       @application.update(is_confirmed: true)
+      update_role
     end
     @application.update(is_checked: true)
   end

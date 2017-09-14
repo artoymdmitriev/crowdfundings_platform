@@ -4,7 +4,7 @@ class Application < ApplicationRecord
 
   validates :name, presence: true
   validates :surname, presence: true
-  #validates :pic_link, presence: true
+  validates :passport_image, presence: true
   validates :birthday, presence: true
   validates :user_id, presence: true
 end

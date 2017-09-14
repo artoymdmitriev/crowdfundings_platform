@@ -1,9 +1,20 @@
-<%= @application.name %>
-<%= @application.surname %>
-<%= image_tag @application.passport_image.url  %>
-<% unless @application.is_checked %>
-  <%= form_for @application do |f| %>
-      <%= submit_tag 'Allow', name: 'allow', class: 'btn btn-success' %>
-      <%= submit_tag 'Deny', name: 'deny', class: 'btn btn-danger' %>
-  <% end %>
-<% end %>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title">Application</h4>
+    <%= image_tag @application.passport_image.url, class: 'card-img-top'  %>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name: <%= @application.name %></li>
+      <li class="list-group-item">Surname: <%= @application.surname %></li>
+      <li class="list-group-item">Brithday: <%= @application.birthday %></li>
+      <% unless @application.comment.blank? %>
+          <li class="list-group-item">Additional comment: <%= @application.comment %></li>
+      <% end %>
+    </ul>
+    <% unless @application.is_checked %>
+        <%= form_for @application do |f| %>
+            <%= submit_tag 'Allow', name: 'allow', class: 'btn btn-success' %>
+            <%= submit_tag 'Deny', name: 'deny', class: 'btn btn-danger' %>
+        <% end %>
+    <% end %>
+  </div>
+</div>
