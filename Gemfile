@@ -38,24 +38,23 @@ gem 'devise', '~> 4.3'
 gem 'twitter-bootstrap-rails'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
-gem 'activemerchant', '~> 1.71'
-gem 'braintree', '~> 2.78'
-
+# Markup support
+gem 'kramdown', '~> 1.15'
+# Time validation
+gem 'validates_timeliness', '~> 4.0', '>= 4.0.2'
+# Image uploader to cloud storage
 gem 'dotenv', '~> 2.0'
 gem 'cloudinary', '~> 1.8', '>= 1.8.1'
-
-gem 'kramdown', '~> 1.15'
-gem 'validates_timeliness', '~> 4.0', '>= 4.0.2'
-
+# Image uploader to local storage
 gem 'carrierwave', '~> 1.1'
 gem 'mini_magick', '~> 4.8'
-
+# Custom pages for 4xx and 5xx errors
 gem 'exception_handler', '~> 0.7.7.0'
-
+# Payments
 gem 'stripe', '~> 3.3', '>= 3.3.1'
-
+# Achievements
 gem 'merit', '~> 3.0'
-
+# Observers
 gem 'rails-observers', '~> 0.1.5'
 
 group :development, :test do
