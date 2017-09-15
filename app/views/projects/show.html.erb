@@ -2,13 +2,9 @@
   <div class="row">
     <div class="col-md-9">
       Project by <%= user_name_and_surname @project %>
-      <ul>
-        <% @project.user.badges.each do |badge| %>
-            <li><%= badge.name %></li>
-            <% puts badge.inspect %>
-            <li><%= image_tag (badge.custom_fields[:image]) %></li>
-        <% end %>
-      </ul>
+      <% @project.user.badges.each do |badge| %>
+          <%= image_tag badge.custom_fields[:image], title: badge.description, alt: badge.description %>
+      <% end %>
       <h1><%= @project.name %></h1>
     </div>
   </div>
@@ -32,14 +28,14 @@
         Failed
       </div>
       <div class="donate">
-        <%= link_to 'Donate', new_project_payment_path(@project) %>
+        <%= link_to 'Donate', new_project_payment_path(@project), class: 'btn btn-default' %>
       </div>
 
       <% unless current_user.nil? || current_user.id != @project.user_id %>
           <div class="admin_tools">
-            <%= link_to 'Add news item', new_project_news_item_path(@project), class: 'btn btn-success' %>
-            <%= link_to 'Edit project', edit_project_path(@project), class: 'btn btn-success' %>
-            <%= link_to 'Delete', @project, method: :delete, class: 'btn btn-success' %>
+            <%= link_to 'Add news item', new_project_news_item_path(@project), class: 'btn btn-default' %>
+            <%= link_to 'Edit project', edit_project_path(@project), class: 'btn btn-default' %>
+            <%= link_to 'Delete', @project, method: :delete, class: 'btn btn-default' %>
           </div>
       <% end %>
     </div>
