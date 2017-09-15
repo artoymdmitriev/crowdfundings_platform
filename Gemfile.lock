@@ -43,6 +43,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    ambry (1.0.0)
     arel (7.1.4)
     autoprefixer-rails (7.1.4)
       execjs
@@ -119,6 +120,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
+    merit (3.0.0)
+      ambry (~> 1.0.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -249,6 +252,7 @@ DEPENDENCIES
   jquery-rails
   kramdown (~> 1.15)
   listen (~> 3.0.5)
+  merit (~> 3.0)
   mini_magick (~> 4.8)
   pg
   puma (~> 3.0)

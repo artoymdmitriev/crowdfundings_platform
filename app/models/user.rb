@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_merit
+
   enum role: [:unchecked, :checked, :admin]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

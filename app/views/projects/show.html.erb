@@ -2,6 +2,13 @@
   <div class="row">
     <div class="col-md-9">
       Project by <%= user_name_and_surname @project %>
+      <ul>
+        <% @project.user.badges.each do |badge| %>
+            <li><%= badge.name %></li>
+            <% puts badge.inspect %>
+            <li><%= image_tag (badge.custom_fields[:image]) %></li>
+        <% end %>
+      </ul>
       <h1><%= @project.name %></h1>
     </div>
   </div>

@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  belongs_to :users, optional: true
+  belongs_to :user, optional: true
   has_many :comments, :as => :commentable, dependent: :destroy
   has_many :payments
   has_many :news_items, dependent: :destroy
