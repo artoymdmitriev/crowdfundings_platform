@@ -13,5 +13,6 @@ module CrowdfundingsPlatform
     # -- all .rb files in that directory are automatically loaded.
     config.exception_handler = { dev: true }
     config.active_record.observers = :payment_observer
+    config.active_record.observers = :news_item_observer
   end
 end
