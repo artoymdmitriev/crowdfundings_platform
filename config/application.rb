@@ -12,5 +12,6 @@ module CrowdfundingsPlatform
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.exception_handler = { dev: true }
+    config.active_record.observers = :payment_observer
   end
 end

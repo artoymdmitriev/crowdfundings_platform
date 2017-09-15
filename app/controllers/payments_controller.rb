@@ -26,7 +26,6 @@ class PaymentsController < ApplicationController
         description: @project.name,
         currency: 'usd'
     )
-    @project.update(earned: @project.earned + @amount / 100)
     redirect_to project_path(@project)
   rescue Stripe::CardError => e
       flash[:error] = e.message
