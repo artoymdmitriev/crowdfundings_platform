@@ -3,7 +3,7 @@
   <h3>Our goal is: <%= @project.goal %></h3>
   <h3>Fundings deadline is: <%= @project.fundings_deadline %></h3>
   <%= form_for [@project, @payment] do |f| %>
-      <%= f.number_field :amount, class: 'form-control' %>
+      <%= f.number_field :amount, min: @project.min_payment, max: @project.max_payment, class: 'form-control' %>
       </br>
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
