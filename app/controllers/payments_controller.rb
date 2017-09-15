@@ -1,72 +1,46 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
-  TRANSACTION_SUCCESS_STATUSES = [
-      Braintree::Transaction::Status::Authorizing,
-      Braintree::Transaction::Status::Authorized,
-      Braintree::Transaction::Status::Settled,
-      Braintree::Transaction::Status::SettlementConfirmed,
-      Braintree::Transaction::Status::SettlementPending,
-      Braintree::Transaction::Status::Settling,
-      Braintree::Transaction::Status::SubmittedForSettlement,
-  ]
+  before_action :load_project, except: :show
 
   def new
-    @client_token = Braintree::ClientToken.generate
-    @project_id = params[:project_id]
+    @payment = @project.payments.new
   end
 
   def show
-    @transaction = Braintree::Transaction.find(params[:id])
-    @result = _create_result_hash(@transaction)
+
   end
 
   def create
-    amount = params["amount"] # In production you should not take amounts directly from clients
-    nonce = params["payment_method_nonce"]
+    @payment = @project.payments.new(payments_params)
+    @payment.update(user_id: current_user.id)
+    @amount = (@payment.amount * 100).round
 
-    result = Braintree::Transaction.sale(
-        amount: amount,
-        payment_method_nonce: nonce,
-        :options => {
-            :submit_for_settlement => true
-        }
+    customer = Stripe::Customer.create(
+        email: params[:stripeEmail],
+        source: params[:stripeToken]
     )
 
-    if result.success? || result.transaction
-      redirect_to payment_path(result.transaction.id)
-      save_to_db Braintree::Transaction.find(result.transaction.id)
-    else
-      error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
-      flash[:error] = error_messages
-      redirect_to new_payment_path
-    end
-  end
+    charge = Stripe::Charge.create(
+        customer: customer.id,
+        amount: @amount,
+        description: @project.name,
+        currency: 'usd'
+    )
+    @project.update(earned: @project.earned + @amount / 100)
+    redirect_to project_path(@project)
+  rescue Stripe::CardError => e
+      flash[:error] = e.message
+      @payment.delete
+      redirect_to new_charge_path
+ end
 
-  def _create_result_hash(transaction)
-    status = transaction.status
-
-    if TRANSACTION_SUCCESS_STATUSES.include? status
-      result_hash = {
-          :header => "Sweet Success!",
-          :icon => "success",
-          :message => "Your test transaction has been successfully processed."
-      }
-    else
-      result_hash = {
-          :header => "Transaction Failed",
-          :icon => "fail",
-          :message => "Your test transaction has a status of #{status}."
-      }
-    end
-  end
-
-  #TODO FIX PROJECT ID
   private
-  def save_to_db transaction_object
-    p = Payment.new(last4: transaction_object.credit_card_details.last_4,
-                    amount: transaction_object.amount,
-                    project_id: Project.first.id,
-                    user_id: current_user.id)
-    p.save!
+  def load_project
+    @project = Project.find(params[:project_id])
   end
+
+  def payments_params
+    params.require(:payment).permit(:amount, :project_id)
+  end
+
 end

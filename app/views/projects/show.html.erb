@@ -16,7 +16,7 @@
       </div>
       <div class="project-properties">
         <i class="fa fa-money"></i>
-        <%= count_money_pledged @project %>$
+        <%= @project.earned %>$
       </div>
       <div class="project-properties-small">
         pledged of <%= @project.goal %>$ goal
@@ -25,7 +25,7 @@
         Failed
       </div>
       <div class="donate">
-        <%= button_to 'Donate', controller: 'payments', action: 'new', project_id: @project.id %>
+        <%= link_to 'Donate', new_project_payment_path(@project) %>
       </div>
 
       <% unless current_user.nil? || current_user.id != @project.user_id %>

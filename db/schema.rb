@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914215703) do
+ActiveRecord::Schema.define(version: 20170915002252) do
 
   create_table "applications", force: :cascade do |t|
     t.string  "name",                           null: false
@@ -54,11 +54,9 @@ ActiveRecord::Schema.define(version: 20170914215703) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.string   "last4"
     t.decimal  "amount",     precision: 12, scale: 3
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "payment_id"
     t.integer  "user_id"
     t.integer  "project_id"
     t.index ["project_id"], name: "index_payments_on_project_id"
@@ -78,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170914215703) do
     t.decimal  "goal",              precision: 12, scale: 3
     t.decimal  "min_payment",       precision: 12, scale: 3
     t.decimal  "max_payment",       precision: 12, scale: 3
+    t.decimal  "earned",            precision: 12, scale: 3, default: "0.0"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
