@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment = find_commentable.comments.create(params[:comment].permit(:text))
     @comment.user_id = current_user.id
     @comment.save
-    redirect_back
+    redirect_to request.referrer
   end
 
   private
