@@ -33,9 +33,18 @@ end
 # end
 
 Merit::Badge.create!(
-    id: 2,
+    id: 1,
     name: 'commenter-1',
-    description: 'Commentor of the first level',
+    description: 'commenter-1',
+    custom_fields: {
+        image: '/assets/badges/chat.png',
+    }
+)
+
+Merit::Badge.create!(
+    id: 2,
+    name: 'commenter-2',
+    description: 'commenter-2',
     custom_fields: {
         image: '/assets/badges/chat.png',
     }
@@ -44,8 +53,71 @@ Merit::Badge.create!(
 Merit::Badge.create!(
     id: 3,
     name: 'investor-1',
-    description: 'Donate 100$ at once',
+    description: 'investor-1',
     custom_fields: {
         image: '/assets/badges/first-100.png',
+    }
+)
+
+Merit::Badge.create!(
+    id: 4,
+    name: 'investor-2',
+    description: 'investor-2',
+    custom_fields: {
+        image: '/assets/badges/first-100.png',
+    }
+)
+
+Merit::Badge.create!(
+    id: 5,
+    name: 'investor-3',
+    description: 'investor-3',
+    custom_fields: {
+        image: '/assets/badges/first-100.png',
+    }
+)
+
+Merit::Badge.create!(
+    id: 6,
+    name: 'investor-4',
+    description: 'investor-4',
+    custom_fields: {
+        image: '/assets/badges/first-100.png',
+    }
+)
+
+Merit::Badge.create!(
+    id: 7,
+    name: 'investor-5',
+    description: 'investor-5',
+    custom_fields: {
+        image: '/assets/badges/first-100.png',
+    }
+)
+
+Merit::Badge.create!(
+    id: 8,
+    name: 'commenter-3',
+    description: 'commenter-3',
+    custom_fields: {
+        image: '/assets/badges/chat.png',
+    }
+)
+
+Merit::Badge.create!(
+    id: 9,
+    name: 'commenter-4',
+    description: 'commenter-4',
+    custom_fields: {
+        image: '/assets/badges/chat.png',
+    }
+)
+
+Merit::Badge.create!(
+    id: 10,
+    name: 'commenter-5',
+    description: 'commenter-5',
+    custom_fields: {
+        image: '/assets/badges/chat.png',
     }
 )

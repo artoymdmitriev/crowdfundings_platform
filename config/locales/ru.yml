@@ -29,3 +29,12 @@ ru:
         not_found: "Ошибка 404: Похоже, у нас нет страницы, которую вы ищете..:("
         unauthorized: "You need to login to continue"
         internal_server_error: "This is a test to show the %{status} of the error"
+
+  merit:
+        commenter-1: "Написать первый комментарий!"
+        commenter-2: "Написать 15 комментариев"
+        investor-1: "Задонатить более 10$"
+        investor-2: "Задонатить более 20$"
+        investor-3: "Задонатить более 50$"
+        investor-4: "Задонатить более 100$"
+        investor-5: "Задонатить более 1000$"

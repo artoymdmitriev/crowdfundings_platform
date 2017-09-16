@@ -28,11 +28,43 @@ module Merit
 
       # If it has 10 comments, grant commenter-10 badge
       grant_on 'comments#create', badge: 'commenter-1' do |comment|
-        comment.user.comments.count == 2
+        comment.user.comments.count == 1
+      end
+
+      grant_on 'comments#create', badge: 'commenter-2' do |comment|
+        comment.user.comments.count == 15
+      end
+
+      grant_on 'comments#create', badge: 'commenter-3' do |comment|
+        comment.user.comments.count == 50
+      end
+
+      grant_on 'comments#create', badge: 'commenter-4' do |comment|
+        comment.user.comments.count == 100
+      end
+
+      grant_on 'comments#create', badge: 'commenter-5' do |comment|
+        comment.user.comments.count == 500
       end
 
       grant_on 'payments#create', badge: 'investor-1' do |payment|
+        payment.amount.to_i >= 10
+      end
+
+      grant_on 'payments#create', badge: 'investor-2' do |payment|
+        payment.amount.to_i >= 20
+      end
+
+      grant_on 'payments#create', badge: 'investor-3' do |payment|
+        payment.amount.to_i >= 50
+      end
+
+      grant_on 'payments#create', badge: 'investor-4' do |payment|
         payment.amount.to_i >= 100
+      end
+
+      grant_on 'payments#create', badge: 'investor-5' do |payment|
+        payment.amount.to_i >= 1000
       end
 
       # If it has 5 votes, grant relevant-commenter badge

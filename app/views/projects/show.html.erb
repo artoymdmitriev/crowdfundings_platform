@@ -3,7 +3,7 @@
     <div class="col-md-9">
       Project by <%= user_name_and_surname @project %>
       <% @project.user.badges.each do |badge| %>
-          <%= image_tag badge.custom_fields[:image], title: badge.description, alt: badge.description %>
+          <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)), alt: badge.description %>
       <% end %>
       <h1><%= @project.name %></h1>
     </div>
