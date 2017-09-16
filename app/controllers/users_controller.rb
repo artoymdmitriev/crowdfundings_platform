@@ -1,7 +1,7 @@
-class UsersController < AdminController
+class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_action :authenticate_user!, except: :show
-  skip_before_action :is_admin?, only: :show
+  befre_action :is_admin?, except: :show
 
   def index
     @users = User.order(sort_column + " " + sort_direction)
@@ -61,5 +61,9 @@ class UsersController < AdminController
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
+  def is_admin?
+    redirect_to root_path unless current_user.admin?
   end
 end
