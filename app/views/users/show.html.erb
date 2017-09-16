@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h1><%= @user.email %></h1>
+      <% @user.badges.each do |badge| %>
+          <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)), alt: badge.description %>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      blablabla
+    </div>
+  </div>
+</div>

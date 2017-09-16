@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-      Project by <%= user_name_and_surname @project %>
+      Project by <%= link_to (user_name_and_surname @project), user_path(@project.user_id) %>
       <% @project.user.badges.each do |badge| %>
           <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)), alt: badge.description %>
       <% end %>

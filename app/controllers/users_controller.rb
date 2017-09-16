@@ -1,9 +1,14 @@
 class UsersController < AdminController
   helper_method :sort_column, :sort_direction
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
+  skip_before_action :is_admin?, only: :show
 
   def index
     @users = User.order(sort_column + " " + sort_direction)
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def change
