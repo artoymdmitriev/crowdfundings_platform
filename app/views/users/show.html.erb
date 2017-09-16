@@ -1,9 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-      <h1><%= @user.email %></h1>
-      <% @user.badges.each do |badge| %>
-          <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)), alt: badge.description %>
+      <% unless @user.application.nil? %>
+          <h1><%= "#{@user.application.name} #{@user.application.surname}" %></h1>
+      <% else %>
+          <h1><%= @user.email %></h1>
+      <% end %>
+
+      <% unless @user.badges.empty? %>
+          <% @user.badges.each do |badge| %>
+              <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)), alt: badge.description %>
+          <% end %>
       <% end %>
     </div>
     <div class="col-md-3">

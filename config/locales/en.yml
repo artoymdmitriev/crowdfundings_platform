@@ -50,18 +50,23 @@ en:
       apply_ginger_theme: "Apply ginger theme"
 
   exception_handler:
-      not_found: "404 Error: It seems like we haven't got the page you are looking for..:("
-      unauthorized: "You need to login to continue"
-      internal_server_error: "This is a test to show the %{status} of the error"
+    not_found: "404 Error: It seems like we haven't got the page you are looking for..:("
+    unauthorized: "You need to login to continue"
+    internal_server_error: "This is a test to show the %{status} of the error"
 
   merit:
-      commenter-1: "Write your first comment!"
-      commenter-2: "Write 15 comments"
-      commenter-3: "Write 50 comments"
-      commenter-4: "Write 100 comments"
-      commenter-5: "Write 500 comments"
-      investor-1: "Donate 10$ at once"
-      investor-2: "Donate 20$ at once"
-      investor-3: "Donate 50$ at once"
-      investor-4: "Donate 100$ at once"
-      investor-5: "Donate 1000$ at once"
+    commenter-1: "Write your first comment!"
+    commenter-2: "Write 15 comments"
+    commenter-3: "Write 50 comments"
+    commenter-4: "Write 100 comments"
+    commenter-5: "Write 500 comments"
+    investor-1: "Donate 10$ at once"
+    investor-2: "Donate 20$ at once"
+    investor-3: "Donate 50$ at once"
+    investor-4: "Donate 100$ at once"
+    investor-5: "Donate 1000$ at once"
+
+  users:
+    show:
+      registered_at: "Registered at"
+
