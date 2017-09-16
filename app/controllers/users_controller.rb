@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_action :authenticate_user!, except: :show
-  befre_action :is_admin?, except: :show
+  before_action :is_admin?, except: :show
 
   def index
     @users = User.order(sort_column + " " + sort_direction)
