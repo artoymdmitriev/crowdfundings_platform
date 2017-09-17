@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   before_action :check_user, except: [:index, :show, :my_projects]
   before_action :check_configuration
   before_action :load_project, only: [:show, :edit, :destroy]
-  before_action :check_for_rights, only: [:edit, :destroy]
+  before_action :check_for_edit_rights, only: [:edit, :destroy]
 
   def index
     @projects = Project.all
@@ -54,8 +54,8 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def check_for_rights
-    unless !current_user.nil? && (@project.user_id == current_user.id || current_user.role == 'admin')
+  def check_for_edit_rights
+    unless check_for_rights
       flash[:error] = 'You are not allowed to edit another\'s posts'
       redirect_to '/projects/'
     end

@@ -76,3 +76,21 @@ en:
     show:
       registered_at: "Registered at"
 
+  projects:
+    state:
+      succeeded: "Succeeded"
+      failed: "Failed"
+      active: "Active"
+    show:
+      state: "State"
+      about: "About"
+      pledged: "pledged of"
+      fund: "Fund"
+      manage_project: "Manage project"
+      add_news: "Add news item"
+      edit_project: "Edit project"
+      delete_project: "Delete project"
+    index:
+      edit: "Edit"
+      delete: "Delete"
+

@@ -46,3 +46,22 @@ ru:
     news-maker-3: "Написать 20 новостей"
     news-maker-4: "Написать 50 новостей"
     news-maker-5: "Написать 100 новостей"
+
+  users:
+      show:
+        registered_at: "Registered at"
+
+  projects:
+    state:
+      succeeded: "Успешен"
+      failed: "Провален"
+      active: "Активен"
+    show:
+      state: "Статус"
+      about: "О проекте"
+      pledged: "собрано из"
+      fund: "Профинансировать"
+      manage_project: "Управлять проектом"
+      add_news: "Добавить новость"
+      edit_project: "Отредактировать проект"
+      delete_project: "Удалить проект"

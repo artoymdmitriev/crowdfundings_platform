@@ -19,8 +19,9 @@
 body {
   background-color: #FFC450;
 }
-.btn-submit {
+.btn-default {
   color: #F7F7F7;
+  margin: 6px;
 }
 
 .project-properties {
@@ -30,6 +31,10 @@ body {
 .project-properties-small {
   font-size: 15pt;
   color: #666666;
+}
+
+.project-properties-index {
+  font-size: 12pt;
 }
 
 .content-grid {

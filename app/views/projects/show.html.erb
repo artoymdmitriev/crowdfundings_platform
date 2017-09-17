@@ -4,7 +4,7 @@
       Project by <%= link_to (user_name_and_surname @project), user_path(@project.user_id) %>
       <% @project.user.badges.last(5).each do |badge| %>
           <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)),
-                        alt: badge.description, size: '27' %>
+                        alt: badge.description, size: '23' %>
       <% end %>
       <h1><%= @project.name %></h1>
     </div>
@@ -12,6 +12,15 @@
   <div class="row">
     <div class="col-md-9">
       <img src="<%= @project.pic_link %>" alt="Placeholder" style="max-width: 100%">
+      <h2><%= t '.about' %></h2>
+      <div class="description">
+        <%= kramdown @project.description %>
+      </div>
+      <h2><%= t '.comments' %></h2>
+      <div class="comments">
+        <%= render @project.comments %>
+        <%= render '/comments/shared/comment_field' %>
+      </div>
     </div>
     <div class="col-md-3">
       <div class="project-properties">
@@ -23,40 +32,24 @@
         <%= @project.earned %>$
       </div>
       <div class="project-properties-small">
-        pledged of <%= @project.goal %>$ goal
+        <%= t '.pledged' %> <%= @project.goal %>$
       </div>
       <div class="project-properties">
-        Failed
+        <%= t '.state' %>:
+        <%= t 'projects.state.' + @project.state.to_s %>
       </div>
       <div class="donate">
-        <%= link_to 'Donate', new_project_payment_path(@project), class: 'btn btn-default' %>
+        <%= link_to (t '.fund'), new_project_payment_path(@project), class: 'btn btn-default btn-block' %>
       </div>
 
-      <% unless current_user.nil? || current_user.id != @project.user_id %>
+      <% if check_for_rights %>
           <div class="admin_tools">
-            <%= link_to 'Add news item', new_project_news_item_path(@project), class: 'btn btn-default' %>
-            <%= link_to 'Edit project', edit_project_path(@project), class: 'btn btn-default' %>
-            <%= link_to 'Delete', @project, method: :delete, class: 'btn btn-default' %>
+            <h3><%= t '.manage_project' %></h3>
+            <%= link_to (t '.add_news'), new_project_news_item_path(@project), class: 'btn btn-default btn-block' %>
+            <%= link_to (t '.edit_project'), edit_project_path(@project), class: 'btn btn-default btn-block' %>
+            <%= link_to (t '.delete_project'), @project, method: :delete, class: 'btn btn-default btn-block' %>
           </div>
       <% end %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-9">
-      <h2>About this project</h2>
-      <div class="description">
-        <%= kramdown @project.description %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-9">
-      <h2>Comments</h2>
-      <div class="comments">
-        <%= render @project.comments %>
-        <%= render '/comments/shared/comment_field' %>
-      </div>
     </div>
   </div>
 </div>

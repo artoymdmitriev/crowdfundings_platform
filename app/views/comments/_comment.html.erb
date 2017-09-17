@@ -1,14 +1,14 @@
 <div class="comment">
   <div class="author">
-    <%= link_to (get_author_name comment.user_id), user_path(comment.user_id) %>
-    <% unless @project.user.badges.empty? %>
-        <% @project.user.badges.last(5).each do |badge| %>
+    <%= comment.created_at %> | <%= link_to (get_author_name comment.user_id), user_path(comment.user_id) %>
+    <% unless comment.user.badges.empty? %>
+        <% comment.user.badges.last(5).each do |badge| %>
             <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)),
                           alt: badge.description, size: '16' %>
         <% end %>
     <% end %>
   </div>
-  <div class="posted-date"><%= time_ago_in_words(comment.created_at) %></div>
   <div class="text"><h5><%= comment.text %></h5></div>
+  <hr>
 
 </div>
