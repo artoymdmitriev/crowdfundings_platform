@@ -84,6 +84,8 @@ en:
     show:
       state: "State"
       about: "About"
+      tags: "Tags"
+      comments: "Comments"
       pledged: "pledged of"
       fund: "Fund"
       manage_project: "Manage project"

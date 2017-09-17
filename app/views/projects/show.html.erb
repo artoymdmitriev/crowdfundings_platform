@@ -16,6 +16,10 @@
       <div class="description">
         <%= kramdown @project.description %>
       </div>
+      <h2><%= t '.tags' %></h2>
+      <div class="tags">
+        <%= render @project.tags %>
+      </div>
       <h2><%= t '.comments' %></h2>
       <div class="comments">
         <%= render @project.comments %>

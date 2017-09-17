@@ -33,6 +33,11 @@
             <%= f.label "max_payment" %><br />
             <%= f.number_field :max_payment, step: 0.1, class: 'form-control', min: 1 %>
           </div>
+          <div class="field">
+            <%= f.label "tags" %><br />
+            <%= f.text_field :tag_list, value: f.object.tag_list.to_s,
+                             placeholder: 'car, flower, tower', class: 'form-control' %>
+          </div>
           <br />
           <%= f.submit "Create", class: 'btn btn-success btn-block' %>
         </div>

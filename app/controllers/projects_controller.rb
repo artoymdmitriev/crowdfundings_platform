@@ -19,8 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    params.permit!
-    @project = Project.new(params[:project])
+    @project = Project.new(project_params)
     @project.user_id = current_user.id
     uploaded_io = params[:project][:pic_link]
     upload_image uploaded_io.path unless uploaded_io.nil?
@@ -45,6 +44,10 @@ class ProjectsController < ApplicationController
   private
   def load_project
     @project ||= Project.find(params[:id])
+  end
+
+  def project_params
+    params.require(:project).permit(:name, :fundings_deadline, :description, :pic_link, :goal, :min_payment, :max_payment, :tag_list)
   end
 
   def check_user

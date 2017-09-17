@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   has_many :comments, :as => :commentable, dependent: :destroy
   has_many :payments
   has_many :news_items, dependent: :destroy
+  acts_as_taggable_on :tags
 
   validates :name, presence: true, length: { minimum: 10, message: 'is too short' }
   validates_date :fundings_deadline, on_or_after: :today

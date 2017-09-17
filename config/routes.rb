@@ -40,4 +40,5 @@ Rails.application.routes.draw do
   resources :projects, has_many: :comments
   resources :news_items
   get '/settings', to: 'ui_settings#my_settings'
+  resources :tags, only: [:index, :show]
 end

@@ -59,6 +59,8 @@ ru:
     show:
       state: "Статус"
       about: "О проекте"
+      tags: "Теги"
+      comments: "Комментарии"
       pledged: "собрано из"
       fund: "Профинансировать"
       manage_project: "Управлять проектом"
