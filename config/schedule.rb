@@ -22,7 +22,9 @@
 # every :day, at: '12:00 AM' do
 #   runner 'Project.check_state'
 # end
+env :PATH, ENV['PATH']
+env :GEM_PATH, ENV['GEM_PATH']
 set :output, "#{path}/log/cron_log.log"
 every 1.minute do
-  runner 'Project.check_state'
+  runner "Project.check_state"
 end
