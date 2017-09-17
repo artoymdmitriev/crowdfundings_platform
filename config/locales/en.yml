@@ -55,16 +55,22 @@ en:
     internal_server_error: "This is a test to show the %{status} of the error"
 
   merit:
-    commenter-1: "Write your first comment!"
+    commenter-1: "Write your first comment"
     commenter-2: "Write 15 comments"
     commenter-3: "Write 50 comments"
     commenter-4: "Write 100 comments"
     commenter-5: "Write 500 comments"
-    investor-1: "Donate 10$ at once"
-    investor-2: "Donate 20$ at once"
-    investor-3: "Donate 50$ at once"
-    investor-4: "Donate 100$ at once"
-    investor-5: "Donate 1000$ at once"
+    investor-1: "Donate more than 10$ at once"
+    investor-2: "Donate more than 20$ at once"
+    investor-3: "Donate more than 50$ at once"
+    investor-4: "Donate more than 100$ at once"
+    investor-5: "Donate more than 1000$ at once"
+    news-maker-1: "Write your first news article"
+    news-maker-2: "Write 10 news articles"
+    news-maker-3: "Write 20 news articles"
+    news-maker-4: "Write 50 news articles"
+    news-maker-5: "Write 100 news articles"
+
 
   users:
     show:

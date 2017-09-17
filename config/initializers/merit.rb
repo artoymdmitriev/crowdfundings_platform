@@ -37,87 +37,118 @@ Merit::Badge.create!(
     name: 'commenter-1',
     description: 'commenter-1',
     custom_fields: {
-        image: '/assets/badges/chat.png',
+        image: '/assets/badges/commenter-1.png',
     }
 )
-
 Merit::Badge.create!(
     id: 2,
     name: 'commenter-2',
     description: 'commenter-2',
     custom_fields: {
-        image: '/assets/badges/chat.png',
+        image: '/assets/badges/commenter-2.png',
     }
 )
-
 Merit::Badge.create!(
     id: 3,
     name: 'investor-1',
     description: 'investor-1',
     custom_fields: {
-        image: '/assets/badges/first-100.png',
+        image: '/assets/badges/investor-1.png',
     }
 )
-
 Merit::Badge.create!(
     id: 4,
     name: 'investor-2',
     description: 'investor-2',
     custom_fields: {
-        image: '/assets/badges/first-100.png',
+        image: '/assets/badges/investor-2.png',
     }
 )
-
 Merit::Badge.create!(
     id: 5,
     name: 'investor-3',
     description: 'investor-3',
     custom_fields: {
-        image: '/assets/badges/first-100.png',
+        image: '/assets/badges/investor-3.png',
     }
 )
-
 Merit::Badge.create!(
     id: 6,
     name: 'investor-4',
     description: 'investor-4',
     custom_fields: {
-        image: '/assets/badges/first-100.png',
+        image: '/assets/badges/investor-4.png',
     }
 )
-
 Merit::Badge.create!(
     id: 7,
     name: 'investor-5',
     description: 'investor-5',
     custom_fields: {
-        image: '/assets/badges/first-100.png',
+        image: '/assets/badges/investor-5.png',
     }
 )
-
 Merit::Badge.create!(
     id: 8,
     name: 'commenter-3',
     description: 'commenter-3',
     custom_fields: {
-        image: '/assets/badges/chat.png',
+        image: '/assets/badges/commenter-3.png',
     }
 )
-
 Merit::Badge.create!(
     id: 9,
     name: 'commenter-4',
     description: 'commenter-4',
     custom_fields: {
-        image: '/assets/badges/chat.png',
+        image: '/assets/badges/commenter-4.png',
     }
 )
-
 Merit::Badge.create!(
     id: 10,
     name: 'commenter-5',
     description: 'commenter-5',
     custom_fields: {
-        image: '/assets/badges/chat.png',
+        image: '/assets/badges/commenter-5.png',
+    }
+)
+Merit::Badge.create!(
+    id: 11,
+    name: 'news-maker-1',
+    description: 'news-maker-1',
+    custom_fields: {
+        image: '/assets/badges/news-maker-1.png',
+    }
+)
+Merit::Badge.create!(
+    id: 12,
+    name: 'news-maker-2',
+    description: 'news-maker-2',
+    custom_fields: {
+        image: '/assets/badges/news-maker-2.png',
+    }
+)
+Merit::Badge.create!(
+    id: 13,
+    name: 'news-maker-3',
+    description: 'news-maker-3',
+    custom_fields: {
+        image: '/assets/badges/news-maker-3.png',
+    }
+)
+Merit::Badge.create!(
+    id: 14,
+    name: 'news-maker-4',
+    description: 'news-maker-4',
+    custom_fields: {
+        image: '/assets/badges/news-maker-4.png',
+    }
+)
+Merit::Badge.create!(
+    id: 15,
+    name: 'news-maker-5',
+    description: 'news-maker-5',
+    custom_fields: {
+        image: '/assets/badges/news-maker-5.png',
     }
 )

@@ -48,23 +48,43 @@ module Merit
       end
 
       grant_on 'payments#create', badge: 'investor-1' do |payment|
-        payment.amount.to_i >= 10
+        payment.amount.to_i >= 10 && payment.amount.to_i < 20
       end
 
       grant_on 'payments#create', badge: 'investor-2' do |payment|
-        payment.amount.to_i >= 20
+        payment.amount.to_i >= 20 && payment.amount.to_i < 50
       end
 
       grant_on 'payments#create', badge: 'investor-3' do |payment|
-        payment.amount.to_i >= 50
+        payment.amount.to_i >= 50 && payment.amount.to_i < 100
       end
 
       grant_on 'payments#create', badge: 'investor-4' do |payment|
-        payment.amount.to_i >= 100
+        payment.amount.to_i >= 100 && payment.amount.to_i < 1000
       end
 
       grant_on 'payments#create', badge: 'investor-5' do |payment|
         payment.amount.to_i >= 1000
+      end
+
+      grant_on 'news_items#create', badge: 'news-maker-1' do |news_item|
+        news_item.user.news_items.count == 1
+      end
+
+      grant_on 'news_items#create', badge: 'news-maker-2' do |news_item|
+        news_item.user.news_items.count == 10
+      end
+
+      grant_on 'news_items#create', badge: 'news-maker-3' do |news_item|
+        news_item.user.news_items.count == 20
+      end
+
+      grant_on 'news_items#create', badge: 'news-maker-4' do |news_item|
+        news_item.user.news_items.count == 50
+      end
+
+      grant_on 'news_items#create', badge: 'news-maker-5' do |news_item|
+        news_item.user.news_items.count == 100
       end
 
       # If it has 5 votes, grant relevant-commenter badge

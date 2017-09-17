@@ -2,8 +2,9 @@
   <div class="row">
     <div class="col-md-9">
       Project by <%= link_to (user_name_and_surname @project), user_path(@project.user_id) %>
-      <% @project.user.badges.each do |badge| %>
-          <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)), alt: badge.description %>
+      <% @project.user.badges.last(5).each do |badge| %>
+          <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)),
+                        alt: badge.description, size: '27' %>
       <% end %>
       <h1><%= @project.name %></h1>
     </div>

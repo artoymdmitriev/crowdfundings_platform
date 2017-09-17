@@ -1,8 +1,8 @@
 <div class="comment">
   <div class="author">
     <%= link_to (get_author_name comment.user_id), user_path(comment.user_id) %>
-    <% unless @user.badges.empty? %>
-        <% @user.badges.last(2).each do |badge| %>
+    <% unless @project.user.badges.empty? %>
+        <% @project.user.badges.last(5).each do |badge| %>
             <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)),
                           alt: badge.description, size: '16' %>
         <% end %>
