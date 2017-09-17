@@ -15,7 +15,7 @@ class Project < ApplicationRecord
   validates :max_payment, presence: true, numericality: { greater_than: :min_payment }
 
   def self.check_state
-    Project.find_each(state: :active) do |project|
+    Project.all.each do |project|
       if project.fundings_deadline < Date.today
         if project.earned < project.goal
           project.update(state: :failed)
