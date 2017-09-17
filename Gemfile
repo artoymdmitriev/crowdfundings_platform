@@ -57,6 +57,8 @@ gem 'merit', '~> 3.0'
 # Observers
 gem 'rails-observers', '~> 0.1.5'
 
+gem 'whenever', '~> 0.9.7', require: false
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
