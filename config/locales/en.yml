@@ -95,4 +95,15 @@ en:
     index:
       edit: "Edit"
       delete: "Delete"
+    new:
+      name: "Name"
+      description: "Description"
+      picture: "Project's picture"
+      fundings_deadline: "Deadline of fundings"
+      goal: "Project's goal"
+      min_payment: "Min payment"
+      max_payment: "Max payment"
+      tags: "Tags"
+      tags_placeholder: "car, flower, tower"
+      create: "Create"
 

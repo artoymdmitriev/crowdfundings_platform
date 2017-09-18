@@ -67,3 +67,17 @@ ru:
       add_news: "Добавить новость"
       edit_project: "Отредактировать проект"
       delete_project: "Удалить проект"
+    index:
+      edit: "Редактировать"
+      delete: "Удалить"
+    new:
+      name: "Название"
+      description: "Описание"
+      picture: "Изображение"
+      fundings_deadline: "Окончание сбора средств"
+      goal: "Цель проекта"
+      min_payment: "Минимальный платеж"
+      max_payment: "Максимальный платеж"
+      tags: "Теги"
+      tags_placeholder: "автомобиль, цветок, башня"
+      create: "Создать"

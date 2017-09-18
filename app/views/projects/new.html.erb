@@ -6,40 +6,41 @@
           <%= render '/projects/shared/error_messages' %>
 
           <div class="field">
-            <%= f.label "name" %>
+            <%= f.label (t '.name') %>
             <%= f.text_field :name, class: 'form-control' %>
           </div>
           <div class="field">
-            <%= f.label "description" %>
+            <%= f.label (t '.description') %>
             <%= f.text_area :description, class: 'form-control' %>
           </div>
           <div class="field">
-            <%= f.label "pic_link" %>
+            <%= f.label (t '.picture') %>
             <%= f.file_field :pic_link, class: 'form-control' %>
           </div>
           <div class="field">
-            <%= f.label "fundings_deadline" %>
-            <%= f.date_field :fundings_deadline, class: 'form-control', min: Date.today %>
+            <%= f.label (t '.fundings_deadline') %>
+            <%= f.date_field :fundings_deadline, class: 'form-control',
+                             min: Date.today, placeholder: Date.tomorrow.strftime('%Y-%m-%d') %>
           </div>
           <div class="field">
-            <%= f.label "goal" %><br />
+            <%= f.label (t '.goal') %><br />
             <%= f.number_field :goal, step: 0.1, class: 'form-control' %>
           </div>
           <div class="field">
-            <%= f.label "min_payment" %><br />
+            <%= f.label (t '.min_payment') %><br />
             <%= f.number_field :min_payment, step: 0.1, class: 'form-control', min: 1 %>
           </div>
           <div class="field">
-            <%= f.label "max_payment" %><br />
+            <%= f.label (t '.max_payment') %><br />
             <%= f.number_field :max_payment, step: 0.1, class: 'form-control', min: 1 %>
           </div>
           <div class="field">
-            <%= f.label "tags" %><br />
+            <%= f.label (t '.tags') %><br />
             <%= f.text_field :tag_list, value: f.object.tag_list.to_s,
-                             placeholder: 'car, flower, tower', class: 'form-control' %>
+                             placeholder: (t '.tags_placeholder'), class: 'form-control' %>
           </div>
           <br />
-          <%= f.submit "Create", class: 'btn btn-success btn-block' %>
+          <%= f.submit (t '.create'), class: 'btn btn-success btn-block' %>
         </div>
       <% end %>
   </div>
