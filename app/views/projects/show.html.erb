@@ -16,6 +16,15 @@
       <div class="description">
         <%= kramdown @project.description %>
       </div>
+      <h2>Goals</h2>
+      <div class="goals">
+        <% active_goals.each do |g| %>
+            <%= g.amount %> <%= g.description %>
+        <% end %>
+        <% achieved_goals.each do |g| %>
+            <div style="color: #9F9F9F;"><%= g.amount %> <%= g.description %></div>
+        <% end %>
+      </div>
       <h2><%= t '.tags' %></h2>
       <div class="tags">
         <%= render @project.tags %>
@@ -34,9 +43,6 @@
       <div class="project-properties">
         <i class="fa fa-money"></i>
         <%= earned_money %>$
-      </div>
-      <div class="project-properties-small">
-        <%= t '.pledged' %> <%= @project.goal %>$
       </div>
       <div class="project-properties">
         <%= t '.state' %>:

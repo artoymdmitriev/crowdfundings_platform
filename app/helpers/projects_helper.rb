@@ -24,6 +24,14 @@ module ProjectsHelper
     end
   end
 
+  def active_goals
+    Goal.where(project_id: @project.id, is_achieved: false)
+  end
+
+  def achieved_goals
+    Goal.where(project_id: @project.id, is_achieved: true)
+  end
+
   # TODO refactor
   def earned_money
     earned = 0

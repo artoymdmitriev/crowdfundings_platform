@@ -47,7 +47,9 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :fundings_deadline, :description, :pic_link, :goal, :min_payment, :max_payment, :tag_list)
+    params.require(:project).permit(:name, :fundings_deadline, :description,
+                                    :pic_link, :min_payment, :max_payment, :tag_list,
+                                    goals_attributes: Goal.attribute_names.map(&:to_sym).push(:_destroy))
   end
 
   def check_user
