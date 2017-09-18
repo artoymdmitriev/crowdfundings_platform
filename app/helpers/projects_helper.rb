@@ -23,4 +23,12 @@ module ProjectsHelper
       false
     end
   end
+
+  # TODO refactor
+  def earned_money
+    earned = 0
+    payments = @project.payments.all
+    payments.each { |p| earned += p.amount if p.project_id == @project.id }
+    earned
+  end
 end

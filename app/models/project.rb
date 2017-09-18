@@ -18,12 +18,21 @@ class Project < ApplicationRecord
   def self.check_state
     Project.all.each do |project|
       if project.fundings_deadline < Date.today
-        if project.earned < project.goal
+        if earned_money(project) < project.goal
           project.update(state: :failed)
         else
           project.update(state: :succeeded)
         end
       end
     end
+  end
+  # TODO refactor
+
+  private
+  def earned_money project
+    earned = 0
+    payments = project.payments.all
+    payments.each { |p| earned += p.amount if p.project_id == project.id }
+    earned
   end
 end

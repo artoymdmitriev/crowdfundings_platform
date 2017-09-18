@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
   rescue Stripe::CardError => e
       flash[:error] = e.message
       @payment.delete
-      redirect_to new_charge_path
+      redirect_to project_path(@project)
  end
 
   private

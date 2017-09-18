@@ -113,6 +113,7 @@ en:
       fund: "Fund"
       crowdfunding_platform: "Crowdfuning Platform"
       one_time_funding: "One-time funding"
+      invalid_amount: "Please enter a valid amount in USD ($)"
       error_too_small: "Funding amount must be more than"
       error_too_big: "Funding amount must be less than"
 
