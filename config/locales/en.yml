@@ -107,3 +107,12 @@ en:
       tags_placeholder: "car, flower, tower"
       create: "Create"
 
+  payments:
+    new:
+      funding_amount: "Funding amount"
+      fund: "Fund"
+      crowdfunding_platform: "Crowdfuning Platform"
+      one_time_funding: "One-time funding"
+      error_too_small: "Funding amount must be more than"
+      error_too_big: "Funding amount must be less than"
+

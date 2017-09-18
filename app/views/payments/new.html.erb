@@ -3,12 +3,60 @@
   <h3>Our goal is: <%= @project.goal %></h3>
   <h3>Fundings deadline is: <%= @project.fundings_deadline %></h3>
   <%= form_for [@project, @payment] do |f| %>
-      <%= f.number_field :amount, min: @project.min_payment, max: @project.max_payment, class: 'form-control' %>
-      </br>
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="A month's subscription"
-              data-amount="<%= @amount %>"
-              data-locale="auto"></script>
+      <div id="error_explanation">
+        <% if flash[:error].present? %>
+            <p><%= flash[:error] %></p>
+        <% end %>
+      </div>
+        <%= f.label 'Donation Amount:' %>
+        <%= f.text_field :amount, class: 'form-control' %>
+        <%= f.hidden_field_tag :stripeToken %>
+        <%= f.button (t '.fund'), id: 'donateButton', class: 'btn btn-default btn-block' %>
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+      <script>
+          var handler = StripeCheckout.configure({
+              key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+              locale: 'auto',
+              name: '<%= t '.crowdfunding_platform' %>',
+              description: '<%= t '.one_time_funding' %>',
+              token: function(token) {
+                  $('input#stripeToken').val(token.id);
+                  $('form').submit();
+              }
+          });
+      </script>
+      <script>
+          $('#donateButton').on('click', function(e) {
+              e.preventDefault();
+
+              $('#error_explanation').html('');
+
+              var amount = $('input#payment_amount').val();
+              amount = amount.replace(/\$/g, '').replace(/\,/g, '')
+
+              amount = parseFloat(amount);
+
+              if (isNaN(amount)) {
+                  $('#error_explanation').html('<p>Please enter a valid amount in USD ($).</p>');
+              }
+              else if (amount < <%= @project.min_payment %>) {
+                  $('#error_explanation').html('<p><%= t '.error_too_small' %> $<%= @project.min_payment %>.</p>');
+              }
+              else if (amount > <%= @project.max_payment %>) {
+                  $('#error_explanation').html('<p><%= t '.error_too_big' %> $<%= @project.max_payment %>.</p>');
+              }
+              else {
+                  amount = amount * 100; // Needs to be an integer!
+                  handler.open({
+                      amount: Math.round(amount)
+                  })
+              }
+          });
+      </script>
+      <script>
+          $(window).on('popstate', function() {
+              handler.close();
+          });
+      </script>
   <% end %>
 </div>
