@@ -26,9 +26,8 @@ class Project < ApplicationRecord
       end
     end
   end
-  # TODO refactor
 
-  private
+  # TODO refactor
   def earned_money project
     earned = 0
     payments = project.payments.all
