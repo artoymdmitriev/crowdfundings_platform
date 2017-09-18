@@ -1,4 +1,5 @@
 class NewsItemsController < ApplicationController
+  include Mailable
   before_action :set_project, except: [:index, :show, :edit, :update]
   before_action :load_news_item, only: [:show, :edit, :destroy, :update]
 
@@ -13,6 +14,7 @@ class NewsItemsController < ApplicationController
   def create
     @news_item = @project.news_items.create(news_item_params)
     @news_item.update(user_id: current_user.id)
+    mail(@news_item)
     redirect_to project_path(@project)
   end
 

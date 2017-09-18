@@ -6,6 +6,7 @@
           <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)),
                         alt: badge.description, size: '23' %>
       <% end %>
+      <%= button_to 'Subscribe', "/subscriptions/create?project_id=#{@project.id}"  , :method=>:post %>
       <h1><%= @project.name %></h1>
     </div>
   </div>

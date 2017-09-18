@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   has_many :payments
   has_many :news_items, dependent: :destroy
   has_many :goals, dependent: :destroy
+  has_many :subscriptions
   accepts_nested_attributes_for :goals,
                                 allow_destroy: true,
                                 reject_if: proc { |att| att['description'].blank? || att['amount'].blank? }

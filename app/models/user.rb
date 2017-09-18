@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_one :application
   has_many :notifications
   has_many :news_items
+  has_many :subscriptions
 
   def amount_of_projects
     self.projects.count

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :news_items
+    resources :subscriptions, only: [:new, :create, :destroy]
   end
 
   resources :news_items do
@@ -41,4 +42,7 @@ Rails.application.routes.draw do
   resources :news_items
   get '/settings', to: 'ui_settings#my_settings'
   resources :tags, only: [:index, :show]
+
+  post "/subscriptions/create" => "subscriptions#create"
+  post "/subscriptions/destroy" => "subscriptions#destroy"
 end
