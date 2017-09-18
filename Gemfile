@@ -56,9 +56,9 @@ gem 'stripe', '~> 3.3', '>= 3.3.1'
 gem 'merit', '~> 3.0'
 # Observers
 gem 'rails-observers', '~> 0.1.5'
-
+# DB Schedule
 gem 'whenever', '~> 0.9.7', require: false
-
+# Tags
 gem 'acts-as-taggable-on', '~> 5.0'
 
 group :development, :test do
