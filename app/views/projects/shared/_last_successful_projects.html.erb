@@ -1,5 +1,5 @@
-<h1>Last created projects</h1>
-<% last_projects.each do |project| %>
+<h1>Last successful projects</h1>
+<% last_successful_projects.each do |project| %>
     <div class="mdl-card mdl-cell mdl-cell--6-col mdl-shadow--16dp project-cell">
       <%= link_to project do %>
           <%= image_tag project.pic_link, style: 'max-width: 100%;' %>

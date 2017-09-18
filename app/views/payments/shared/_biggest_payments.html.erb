@@ -1,0 +1,6 @@
+<h3>Biggest payments</h3>
+<% biggest_payments.each do |payment| %>
+    <div>
+      <%= payment.amount %> <%= payment.created_at %>
+    </div>
+<% end %>
