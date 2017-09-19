@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_merit
+  ratyrate_rater
 
   enum role: [:unchecked, :checked, :admin]
   # Include default devise modules. Others available are:

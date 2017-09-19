@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+  ratyrate_rateable "raitings"
   enum state: [:active, :failed, :succeeded]
   belongs_to :user, optional: true
   has_many :comments, :as => :commentable, dependent: :destroy

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   root to: 'main#index'
   get '/my_projects', to: 'projects#my_projects'
