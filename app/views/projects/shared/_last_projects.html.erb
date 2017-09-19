@@ -1,32 +1,22 @@
 <h1>Last created projects</h1>
-<% last_projects.each do |project| %>
-    <div class="mdl-card mdl-cell mdl-cell--6-col mdl-shadow--16dp project-cell">
-      <%= link_to project do %>
-          <%= image_tag project.pic_link, style: 'max-width: 100%;' %>
-      <% end %>
-      <h3 align="center"><%= link_to project.name, project, style: 'text-decoration:none;' %></h3>
-      <div class="col-md-12">
-        <div class="col-md-6">
-          <div class="project-properties-index">
-            <i class="glyphicon glyphicon-time"></i>
-            <%= project.fundings_deadline %>
-          </div>
-          <div class="project-properties-index">
-            <i class="fa fa-money"></i>
-            <%= project.earned_money(project) %>$
-          </div>
-        </div>
-        <div class="col-md-6">
-          <% if !current_user.nil? && project.user_id == current_user.id %>
-              <div class="project-properties-index">
-                <%= link_to 'Edit', edit_project_path(project) %>
-              </div>
-              <div class="project-properties-index">
-                <%= link_to 'Delete', project, method: :delete %>
-              </div>
+<div class="mdl-grid">
+  <% last_projects.each do |project| %>
+        <div class="mdl-card mdl-cell mdl-cell--4-col mdl-shadow--6dp project-cell">
+          <%= link_to project do %>
+              <%= image_tag project.pic_link, class: 'card_image' %>
           <% end %>
+          <h3 align="center"><%= link_to project.name, project, style: 'text-decoration:none;' %></h3>
+          <div class="col-md-12">
+            <div class="project-properties-index">
+              <i class="glyphicon glyphicon-time"></i>
+              <%= project.fundings_deadline %>
+            </div>
+            <div class="project-properties-index">
+              <i class="fa fa-money"></i>
+              <%= project.earned_money(project) %>$
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-<% end %>
+  <% end %>
+</div>
 <%= link_to 'See more', projects_path, class: 'btn btn-default btn-block' %>

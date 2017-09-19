@@ -1,10 +1,10 @@
 module MainHelper
   def last_projects
-    Project.last(4)
+    Project.last(3)
   end
 
   def last_successful_projects
-    Project.where(state: :succeeded).last(4)
+    Project.where(state: :succeeded).last(3)
   end
 
   def biggest_payments
