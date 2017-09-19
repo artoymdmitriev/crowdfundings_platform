@@ -7,7 +7,7 @@ module Mailable include ActiveSupport::Concern
 
   def get_subscrubers news_item
     email_addresses = []
-    subscriptions = news_item.project.subscriptions.each do |s|
+    news_item.project.subscriptions.each do |s|
       email_addresses << s.user.email
     end
     return email_addresses

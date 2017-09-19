@@ -1,7 +1,7 @@
 <div class="my_projects">
   <div class="row">
     <div class="col-md-9">
-      <% if current_user.confirmed? %>
+      <% if current_user.application_confirmed? %>
       <%= link_to 'New Project', new_project_path, class: 'btn btn-default'  %>
       <% end %>
       <h1>I have got <%= @users_projects.count %> projects!</h1>

@@ -18,8 +18,7 @@ class User < ApplicationRecord
     self.projects.count
   end
 
-  def confirmed?
-    puts "hello"
+  def application_confirmed?
     !self.application.nil? && self.application.is_confirmed?
   end
 end
