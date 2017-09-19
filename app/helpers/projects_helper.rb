@@ -39,4 +39,8 @@ module ProjectsHelper
     payments.each { |p| earned += p.amount if p.project_id == @project.id }
     earned
   end
+
+  def subscribed?
+    @project.subscriptions.where(user_id: current_user.id).empty? ? false : true
+  end
 end
