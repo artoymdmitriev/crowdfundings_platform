@@ -44,5 +44,5 @@ Rails.application.routes.draw do
   resources :tags, only: [:index, :show]
 
   post "/subscriptions/create" => "subscriptions#create"
-  post "/subscriptions/destroy" => "subscriptions#destroy"
+  delete "/subscriptions/destroy" => "subscriptions#destroy"
 end

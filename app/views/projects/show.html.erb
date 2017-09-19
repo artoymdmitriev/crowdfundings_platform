@@ -7,6 +7,7 @@
                         alt: badge.description, size: '23' %>
       <% end %>
       <%= button_to 'Subscribe', "/subscriptions/create?project_id=#{@project.id}"  , :method=>:post %>
+      <%= button_to 'Unsubscribe', "/subscriptions/destroy?project_id=#{@project.id}"  , :method=>:delete %>
       <h1><%= @project.name %></h1>
     </div>
   </div>

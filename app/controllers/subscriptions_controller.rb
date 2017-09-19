@@ -12,7 +12,10 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    @subscription.destroy
+    @subscription = Subscription.where(project_id: params[:project_id], user_id: current_user.id)
+    puts "///////////////////////////" + @subscription.inspect
+    Subscription.destroy(@subscription)
+    redirect_to request.referrer
   end
 
   private
