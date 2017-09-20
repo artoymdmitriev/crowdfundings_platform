@@ -1,0 +1,3 @@
+<% @news_items.each do |ni|%>
+    <%= link_to ni.text, news_item_path(ni) %>
+<% end %>

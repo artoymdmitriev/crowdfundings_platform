@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   root to: 'main#index'
-  get '/my_projects', to: 'projects#my_projects'
+
   resources :users, only: [:index, :show]
   resources :users do
     collection do
@@ -46,4 +46,7 @@ Rails.application.routes.draw do
 
   post "/subscriptions/create" => "subscriptions#create"
   delete "/subscriptions/destroy" => "subscriptions#destroy"
+
+  get '/my_projects', to: 'projects#my_projects'
+  get '/my_news', to: 'news_items#my_news'
 end

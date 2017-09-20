@@ -1,6 +1,7 @@
 class NewsItemsController < ApplicationController
   include Mailable
-  before_action :set_project, except: [:index, :show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :my_news]
+  before_action :set_project, except: [:index, :show, :edit, :update, :my_news]
   before_action :load_news_item, only: [:show, :edit, :destroy, :update]
 
   def index
@@ -36,6 +37,14 @@ class NewsItemsController < ApplicationController
     @news_item.destroy
     flash[:success] = 'News Item was deleted'
     redirect_to request.refferer || root_path
+  end
+
+  def my_news
+    projects = []
+    current_user.subscriptions.each { |s| projects << s.project }
+    @news_items = []
+    projects.each { |p| p.news_items.each {|ni| puts ni; @news_items << ni} }
+    @news_items.sort! {|x,y| y.id <=> x.id }
   end
 
   # TODO add translation
