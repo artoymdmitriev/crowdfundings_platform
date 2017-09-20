@@ -1,35 +1,18 @@
 class ApplicationsController < ApplicationController
   include ApplicationsHelper
   before_action :authenticate_user!
-  before_action :check_admin, only: :index
+  before_action :check_admin, only: [:check, :update]
   before_action :check_if_checked_earlier, only: :update
-
-  def index
-    @applications = Application.all
-  end
-
-  def my_application
-    if !current_user.application.nil?
-      @application = current_user.application
-    else
-      puts "THERE IS NO APPLICATION"
-    end
-  end
+  before_action :load_application, only: :update
 
   def new
     @application = Application.new
   end
 
   def create
-    params.permit!
-    @application = Application.new(params[:application])
-    @application.user_id = current_user.id
-    #TODO catch unique constrait
-    if @application.save!
-      redirect_to root_path
-    else
-      puts "YOU ARE STUPID"
-    end
+    @application = Application.create(application_params)
+    @application.update(user_id: current_user.id)
+    redirect_to my_projects_path
   end
 
   def check
@@ -37,23 +20,29 @@ class ApplicationsController < ApplicationController
   end
 
   def update
-    @application = Application.find_by(id: params[:id])
     update_params
     create_notification @application
-    redirect_to request.referrer
+    redirect_to request.referrer || users_path
   end
 
   private
-  def check_admin
-    unless current_user.admin?
-      redirect_to request.referrer
-    end
+  def load_application
+    @application ||= Application.find(params[:id])
   end
 
+  def application_params
+    params.require(:application).permit(:name, :surname, :passport_image, :birthday, :comment)
+  end
+
+  def check_admin
+    redirect_to request.referrer || root_path unless current_user.admin?
+  end
+
+  # TODO add translation
   def check_if_checked_earlier
     if Application.find_by(id: params[:id]).is_checked
       flash[:error] = 'You can\' perform this action. User has alread been checked.'
-      redirect_to request.referrer
+      redirect_to users_path
     end
   end
 
@@ -69,6 +58,6 @@ class ApplicationsController < ApplicationController
 
   def update_role
     user = User.find(@application.user_id)
-    user.update(role: 'checked')
+    user.update(role: :checked)
   end
 end

@@ -6,7 +6,10 @@
           <%= image_tag badge.custom_fields[:image], title: (t ('merit.' + badge.name)),
                         alt: badge.description, size: '23' %>
       <% end %>
-      <h1><%= @project.name %></h1> <%= rating_for @project, 'raitings', disable_after_rate: true, star: 5 %>
+      <div>
+        <h1 style="float: left"><%= @project.name %></h1>
+        <div style="width: 300px; float:left"><%= rating_for @project, 'raitings', disable_after_rate: true, star: 5 %></div>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -19,7 +22,7 @@
       <h2>Goals</h2>
       <div class="goals">
         <% active_goals.each do |g| %>
-            <%= g.amount %> <%= g.description %>
+            <div><%= g.amount %> <%= g.description %></div>
         <% end %>
         <% achieved_goals.each do |g| %>
             <div style="color: #9F9F9F;"><%= g.amount %> <%= g.description %></div>

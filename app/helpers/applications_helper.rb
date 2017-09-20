@@ -8,9 +8,8 @@ module ApplicationsHelper
                         message: create_application_message(application.is_confirmed))
   end
 
-  #TODO replace with translations
+  # TODO replace with translations
   def create_application_message bool_val
-    return 'Your account was confirmed' if bool_val
-    return 'Your account didn\'t pass confirmation' unless bool_val
+    bool_val ? 'Your account was confirmed' : 'Your account didn\'t pass confirmation'
   end
 end

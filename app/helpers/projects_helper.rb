@@ -1,4 +1,16 @@
 module ProjectsHelper
+  def last_projects
+    Project.last(3)
+  end
+
+  def last_successful_projects
+    Project.where(state: :succeeded).last(3)
+  end
+
+  def users_projects
+    current_user.projects
+  end
+
   def count_money_pledged project
     @donations = 0
     Payment.select(:amount).where(project_id: project.id) do |p|
@@ -17,11 +29,7 @@ module ProjectsHelper
   end
 
   def check_for_rights
-    if !current_user.nil? && (@project.user_id == current_user.id || current_user.role == 'admin')
-      true
-    else
-      false
-    end
+    !current_user.nil? && (@project.user_id == current_user.id || current_user.role == :admin) ? true : false
   end
 
   def active_goals
@@ -32,15 +40,13 @@ module ProjectsHelper
     Goal.where(project_id: @project.id, is_achieved: true)
   end
 
-  # TODO refactor
   def earned_money
     earned = 0
-    payments = @project.payments.all
-    payments.each { |p| earned += p.amount if p.project_id == @project.id }
+    @project.payments.each { |p| earned += p.amount if p.project_id == @project.id }
     earned
   end
 
   def subscribed?
-    @project.subscriptions.where(user_id: current_user.id).empty? ? false : true
+    current_user.nil? || @project.subscriptions.where(user_id: current_user.id).empty? ? false : true
   end
 end

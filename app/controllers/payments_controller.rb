@@ -1,14 +1,10 @@
 class PaymentsController < ApplicationController
   include Checkable
   before_action :authenticate_user!
-  before_action :load_project, except: :show
+  before_action :load_project
 
   def new
     @payment = @project.payments.new
-  end
-
-  def show
-
   end
 
   def create
@@ -33,19 +29,12 @@ class PaymentsController < ApplicationController
   end
 
   def create_customer
-    @customer = Stripe::Customer.create(
-        email: params[:stripeEmail],
-        source: params[:stripeToken]
-    )
+    @customer = Stripe::Customer.create(email: params[:stripeEmail], source: params[:stripeToken])
   end
 
   def create_charge
-    @charge = Stripe::Charge.create(
-        customer: @customer.id,
-        amount: @amount,
-        description: @project.name,
-        currency: 'usd'
-    )
+    @charge = Stripe::Charge.create(customer: @customer.id, amount: @amount,
+                                    description: @project.name, currency: 'usd')
   end
 
 end

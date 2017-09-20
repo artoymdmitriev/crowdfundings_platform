@@ -31,19 +31,21 @@ class NewsItemsController < ApplicationController
     @news_item.update_attributes(news_item_params)
   end
 
+  # TODO add translation
   def destroy
     @news_item.destroy
     flash[:success] = 'News Item was deleted'
     redirect_to request.refferer || root_path
   end
 
+  # TODO add translation
   private
   def set_project
     begin
       @project = current_user.projects.find(params[:project_id])
     rescue
       flash[:error] = 'You are not allowed to add news for this project'
-      redirect_to request.refferer || root_path
+      redirect_to request.referrer || root_path
     end
   end
 

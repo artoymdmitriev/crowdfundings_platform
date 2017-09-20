@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
   include ProjectsHelper
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, except: [:index, :show, :my_projects]
-  before_action :check_configuration
   before_action :load_project, only: [:show, :edit, :destroy]
   before_action :check_for_edit_rights, only: [:edit, :destroy]
 
@@ -11,7 +10,6 @@ class ProjectsController < ApplicationController
   end
 
   def my_projects
-    @users_projects = current_user.projects
   end
 
   def new
@@ -35,10 +33,11 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  # TODO add translation
   def destroy
     Project.find(params[:id]).destroy
     flash[:success] = 'Project deleted'
-    redirect_to root_path
+    redirect_to my_projects_path
   end
 
   private
@@ -52,30 +51,29 @@ class ProjectsController < ApplicationController
                                     goals_attributes: Goal.attribute_names.map(&:to_sym).push(:_destroy))
   end
 
+  # TODO add translation
   def check_user
-    unless !current_user.application.nil? && current_user.application.is_confirmed
+    redirect_to new_application_path if current_user.application.nil?
+    unless current_user.application.is_confirmed
       flash[:error] = 'You are not a confirmed user'
-      redirect_to '/applications/new'
+      redirect_to my_projects_path
     end
   end
 
+  # TODO add translation
   def check_for_edit_rights
     unless check_for_rights
       flash[:error] = 'You are not allowed to edit another\'s posts'
-      redirect_to '/projects/'
+      redirect_to projects_path
     end
   end
 
   def save_project
-    if @project.save
+    if @project.save!
       redirect_to root_path
     else
       render :new
     end
-  end
-
-  def check_configuration
-    render 'configuration_missing' if Cloudinary.config.api_key.blank?
   end
 
   def local_image_path(name)
@@ -83,8 +81,7 @@ class ProjectsController < ApplicationController
   end
 
   def upload_image file
-    upload = Cloudinary::Uploader.upload file,
-                                          :tags => "basic_sample"
-    @project.pic_link = upload["url"]
+    upload = Cloudinary::Uploader.upload file
+    @project.pic_link = upload['url']
   end
 end

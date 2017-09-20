@@ -1,22 +1,22 @@
 <h1>Last successful projects</h1>
 <div class="mdl-grid">
   <% last_successful_projects.each do |project| %>
-      <div class="mdl-card mdl-cell mdl-cell--4-col mdl-shadow--6dp project-cell">
-        <%= link_to project do %>
-            <%= image_tag project.pic_link, class: 'card_image' %>
-        <% end %>
-        <h3 align="center"><%= link_to project.name, project, style: 'text-decoration:none;' %></h3>
-        <div class="col-md-12">
-          <div class="project-properties-index">
-            <i class="glyphicon glyphicon-time"></i>
-            <%= project.fundings_deadline %>
-          </div>
-          <div class="project-properties-index">
-            <i class="fa fa-money"></i>
-            <%= project.earned_money(project) %>$
-          </div>
+    <div class="mdl-card mdl-cell mdl-cell--4-col mdl-shadow--6dp project-cell">
+      <%= link_to project do %>
+          <%= image_tag project.pic_link, class: 'card_image' %>
+      <% end %>
+      <h3 align="center"><%= link_to project.name, project, style: 'text-decoration:none;' %></h3>
+      <div class="col-md-12">
+        <div class="project-properties-index">
+          <i class="glyphicon glyphicon-time"></i>
+          <%= project.fundings_deadline %>
+        </div>
+        <div class="project-properties-index">
+          <i class="fa fa-money"></i>
+          <%= project.earned_money(project) %>$
         </div>
       </div>
+    </div>
   <% end %>
 </div>
 <%= link_to 'See more', projects_path, class: 'btn btn-default btn-block' %>

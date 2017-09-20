@@ -2,6 +2,7 @@ class SessionsController < Devise::SessionsController
 
   protected
 
+  # TODO add translation
   def after_sign_in_path_for(resource)
     if resource.is_a?(User) && resource.is_blocked?
       sign_out resource
@@ -11,5 +12,4 @@ class SessionsController < Devise::SessionsController
       super
     end
   end
-
 end

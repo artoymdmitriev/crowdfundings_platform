@@ -2,16 +2,16 @@
   <div class="row">
     <div class="col-md-9">
       <div class="content-grid mdl-grid">
-        <% @users_projects.each do |project| %>
-            <div class="mdl-card mdl-cell mdl-cell--6-col mdl-shadow--16dp project-cell">
-              <%= link_to project do %>
-                  <%= image_tag project.pic_link, style: 'max-width: 100%' %>
-              <% end %>
-              <h3 align="center"><%= link_to project.name, project, style: 'text-decoration:none;' %></h3>
-              <%= link_to 'Edit', edit_project_path(project) %>
-              <%= link_to 'Delete', project, method: :delete %>
-              Author's id: <%= project.user_id %>
-            </div>
+        <% users_projects.each do |project| %>
+          <div class="mdl-card mdl-cell mdl-cell--6-col mdl-shadow--16dp project-cell">
+            <%= link_to project do %>
+                <%= image_tag project.pic_link, style: 'max-width: 100%' %>
+            <% end %>
+            <h3 align="center"><%= link_to project.name, project, style: 'text-decoration:none;' %></h3>
+            <%= link_to 'Edit', edit_project_path(project) %>
+            <%= link_to 'Delete', project, method: :delete %>
+            Author's id: <%= project.user_id %>
+          </div>
         <% end %>
       </div>
     </div>

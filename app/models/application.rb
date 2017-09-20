@@ -1,5 +1,5 @@
 class Application < ApplicationRecord
-  has_one :user
+  belongs_to :user
   mount_uploader :passport_image, PassportUploader
 
   validates :name, presence: true

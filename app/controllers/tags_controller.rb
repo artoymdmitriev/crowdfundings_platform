@@ -1,5 +1,4 @@
 class TagsController < ApplicationController
-  include TagsHelper
   def index
     @tags = ActsAsTaggableOn::Tag.all
   end

@@ -11,49 +11,47 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # TODO add translations
   def change
-    #TODO refactor (too many lines)
-    method = params[:commit]
-    users_in_hash = params[:change]
-    if users_in_hash.nil?
-      redirect_to :back
+    @users_in_hash = params[:change]
+    if @users_in_hash.nil?
+      redirect_to users_path
       flash[:error] = 'You must choose at least one user'
       return
     end
-    if method == (I18n.t :block_action)
-      block users_in_hash
-    elsif method == (I18n.t :unblock_action)
-      unblock users_in_hash
-    elsif method == (I18n.t :delete_action)
-      delete users_in_hash
+    choose_action
+    redirect_to users_path
+  end
+
+  private
+  def choose_action
+    @method = params[:commit]
+    if @method == (I18n.t :block_action)
+      block @users_in_hash
+    elsif @method == (I18n.t :unblock_action)
+      unblock @users_in_hash
+    elsif @method == (I18n.t :delete_action)
+      delete @users_in_hash
     end
-    redirect_to :back
   end
 
   def block users_in_hash
     users_in_hash.each do |key, value|
-      user = User.find(key)
-      user.is_blocked = true
-      user.save
+      User.find(key).update(is_blocked: true)
     end
   end
 
   def unblock users_in_hash
     users_in_hash.each do |key, value|
-      user = User.find(key)
-      user.is_blocked = false
-      user.save
+      User.find(key).update(is_blocked: false)
     end
   end
 
   def delete users_in_hash
     users_in_hash.each do |key, value|
-      user = User.find(key)
-      user.delete
+      User.find(key).delete
     end
   end
-
-  private
 
   def sort_column
     User.column_names.include?(params[:sort]) ? params[:sort] : "email"
