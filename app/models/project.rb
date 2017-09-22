@@ -20,7 +20,6 @@ class Project < ApplicationRecord
   validates :user_id, presence: true
   validates :min_payment, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :max_payment, presence: true, numericality: { greater_than: :min_payment }
-  validates :tags, presence: true
   validates :goals, presence: true
 
   def self.check_state
