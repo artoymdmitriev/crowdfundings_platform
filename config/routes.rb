@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :applications
   resources :tags, only: [:index, :show]
 
   post "/subscriptions/create" => "subscriptions#create"

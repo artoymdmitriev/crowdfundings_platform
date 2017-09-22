@@ -1,3 +1,5 @@
-<% if !current_user.nil? && current_user.application.nil? %>
+<% if !current_user.nil? && !current_user.application.nil? %>
+    <div class="application">My application status is: <%= current_user.application.is_confirmed %></div>
+<% elsif !current_user.nil? %>
     <%= link_to 'New Application', new_application_path, class: 'btn btn-default'   %>
 <% end %>
