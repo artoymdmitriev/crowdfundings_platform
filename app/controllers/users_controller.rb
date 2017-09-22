@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   before_action :is_admin?, except: :show
 
   def index
-    @users = User.order(sort_column + " " + sort_direction)
+    if(params[:commit] == I18n.t(:unchecked_filter))
+      @users = User.includes(:application).where(role: :unchecked).order(sort_column + " " + sort_direction)
+    else
+      @users = User.includes(:application).order(sort_column + " " + sort_direction)
+    end
   end
 
   def show

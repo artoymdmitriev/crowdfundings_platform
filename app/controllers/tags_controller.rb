@@ -5,6 +5,6 @@ class TagsController < ApplicationController
 
   def show
     @tag =  ActsAsTaggableOn::Tag.find(params[:id])
-    @projects = Project.tagged_with(@tag.name)
+    @projects = Project.includes(:payments).tagged_with(@tag.name)
   end
 end

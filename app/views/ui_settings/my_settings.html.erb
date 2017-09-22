@@ -1,8 +1,25 @@
-<li><%= t '.language' %></li>
-<li><%= link_to (t '.english'), locale: 'en' %></li>
-<li><%= link_to (t '.russian'), locale: 'ru' %></li>
-<li class="divider"></li>
-<li><%= t '.theme' %></li>
-<li><%= link_to (t '.apply_light_theme'), theme: 'application_light' %></li>
-<li><%= link_to (t '.apply_dark_theme'), theme: 'application_dark' %></li>
-<li><%= link_to (t '.apply_ginger_theme'), theme: 'application_ginger' %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card" style="width: 20rem;">
+        <div class="card-block">
+          <h4 class="card-title"><%= t '.language' %></h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= link_to (t '.english'), locale: 'en' %></li>
+          <li class="list-group-item"><%= link_to (t '.russian'), locale: 'ru' %></li>
+        </ul>
+      </div>
+      <div class="card" style="width: 20rem;">
+        <div class="card-block">
+          <h4 class="card-title"><%= t '.theme' %></h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= link_to (t '.apply_light_theme'), theme: 'application_light' %></li>
+          <li class="list-group-item"><%= link_to (t '.apply_dark_theme'), theme: 'application_dark' %></li>
+          <li class="list-group-item"><%= link_to (t '.apply_ginger_theme'), theme: 'application_ginger' %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

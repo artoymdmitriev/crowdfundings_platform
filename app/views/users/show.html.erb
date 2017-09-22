@@ -14,7 +14,9 @@
       <% end %>
     </div>
     <div class="col-md-3">
-      blablabla
+      <div>Registered: <%= @user.created_at.strftime("%d.%m.%Y %H:%M") %></div>
+      <div>Amount of created projects: <%= @user.projects.count %></div>
+      <div>Amount of written comments: <%= @user.comments.count %></div>
     </div>
   </div>
 </div>

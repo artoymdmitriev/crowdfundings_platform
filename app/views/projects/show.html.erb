@@ -19,7 +19,7 @@
       <div class="description">
         <%= kramdown @project.description %>
       </div>
-      <h2>Goals</h2>
+      <h2><%= t '.goals' %></h2>
       <div class="goals">
         <% active_goals.each do |g| %>
             <div><%= g.amount %> <%= g.description %></div>
@@ -45,14 +45,14 @@
       </div>
       <div class="project-properties">
         <i class="fa fa-money"></i>
-        <%= earned_money %>$
+        <%= earned_money @project %>$
       </div>
       <div class="project-properties">
         <%= t '.state' %>:
         <%= t 'projects.state.' + @project.state.to_s %>
       </div>
       <div class="donate">
-        <%= link_to (t '.fund'), new_project_payment_path(@project), class: 'btn btn-default btn-block' %>
+        <%= link_to (t '.fund'), new_project_payment_path(@project), class: 'btn btn-default btn-block' %></br>
       </div>
       <div class="subscribe">
         <% if subscribed? %>

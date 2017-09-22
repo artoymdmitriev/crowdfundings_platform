@@ -1,10 +1,10 @@
 module ProjectsHelper
   def last_projects
-    Project.last(3)
+    Project.includes(:payments).last(3)
   end
 
   def last_successful_projects
-    Project.where(state: :succeeded).last(3)
+    Project.includes(:payments).where(state: :succeeded).last(3)
   end
 
   def users_projects
@@ -29,7 +29,7 @@ module ProjectsHelper
   end
 
   def check_for_rights
-    !current_user.nil? && (@project.user_id == current_user.id || current_user.role == :admin) ? true : false
+    !current_user.nil? && (@project.user_id == current_user.id || current_user.role == 'admin') ? true : false
   end
 
   def active_goals
@@ -40,9 +40,9 @@ module ProjectsHelper
     Goal.where(project_id: @project.id, is_achieved: true)
   end
 
-  def earned_money
+  def earned_money project
     earned = 0
-    @project.payments.each { |p| earned += p.amount if p.project_id == @project.id }
+    project.payments.each { |p| earned += p.amount if p.project_id == project.id }
     earned
   end
 

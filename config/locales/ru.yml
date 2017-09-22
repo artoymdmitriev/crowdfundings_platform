@@ -5,15 +5,11 @@ ru:
       register: "Зарегистрироваться"
       logout: "Выйти"
       title: "Краудфандинг"
-      settings: "Настройки"
-      language: "Язык"
-      theme: "Тема"
-      english: "English"
-      russian: "Русский"
-      apply_light_theme: "Применить светлую тему"
-      apply_dark_theme: "Применить темную тему"
-      apply_ginger_theme: "Применить оранжевую тему"
       search: "Поиск"
+      my_projects: "Мои проекты"
+      settings: "Настройки"
+    navbar_admin_actions:
+      manage_users: "Управлять пользователями"
   layouts:
       application:
         title: "Краудфандинг"
@@ -24,6 +20,19 @@ ru:
   block_action: "Заблокировать"
   unblock_action: "Разблокировать"
   delete_action: "Удалить"
+  all_filter: "Все"
+  unchecked_filter: "Непроверенные"
+
+  ui_settings:
+    my_settings:
+      settings: "Настройки"
+      language: "Язык"
+      theme: "Тема"
+      english: "English"
+      russian: "Русский"
+      apply_light_theme: "Применить светлую тему"
+      apply_dark_theme: "Применить темную тему"
+      apply_ginger_theme: "Применить оранжевую тему"
 
   exception_handler:
     not_found: "Ошибка 404: Похоже, у нас нет страницы, которую вы ищете..:("
@@ -59,6 +68,7 @@ ru:
     show:
       state: "Статус"
       about: "О проекте"
+      goals: "Цели"
       tags: "Теги"
       comments: "Комментарии"
       pledged: "собрано из"
@@ -80,9 +90,32 @@ ru:
       max_payment: "Максимальный платеж"
       tags: "Теги"
       tags_placeholder: "автомобиль, цветок, башня"
+      goals: "Цели"
       create: "Создать"
-
+    edit:
+      name: "Название"
+      description: "Описание"
+      picture: "Изображение"
+      fundings_deadline: "Окончание сбора средств"
+      goal: "Цель проекта"
+      min_payment: "Минимальный платеж"
+      max_payment: "Максимальный платеж"
+      tags: "Теги"
+      tags_placeholder: "автомобиль, цветок, башня"
+      goals: "Цели"
+      update: "Обновить"
+    shared:
+      error_messages:
+        error: "Ошибка"
+      last_projects:
+        last_created_projects: "Последние созданные проекты"
+        see_more: "Увидеть больше"
+      last_successful_projects:
+        last_successful_projects: "Последние успешные проекты"
   payments:
+    shared:
+      biggest_payments:
+        biggest_payments: "Крупнейшие платежи"
     new:
       funding_amount: "Сумма финансирования"
       fund: "Профинансировать"
@@ -91,3 +124,39 @@ ru:
       invalid_amount: "Пожалуйста, введите валидную сумму ($)"
       error_too_small: "Сумма финансирования должна быть более"
       error_too_big: "Сумма финансированя должна быть менее"
+  activerecord:
+    attributes:
+      project:
+        name: "Имя"
+        fundings_deadline: "Дата окончания сбора средств"
+        description: "Описание"
+        pic_link: "Картинка"
+        min_payment: "Минимальный платеж"
+        max_payment: "Максимальный платеж"
+        tags: "Теги"
+        goals: "Цели"
+    errors:
+      models:
+        project:
+          attributes:
+            name:
+              blank: "не может быть пустым"
+              too_short: "слишком короткое"
+            fundings_deadline:
+              invalid_date: "неверная"
+            description:
+              blank: "не может быть пустым"
+              too_short: "слишком короткое"
+            pic_link:
+              blank: "должна присутствовать"
+            min_payment:
+              blank: "должен быть указан"
+              not_a_number: "должен быть числом"
+            max_payment:
+              blank: "должен быть указан"
+              not_a_number: "должен быть числом"
+            tags:
+              blank: "должны быть указаны"
+            goals:
+              blank: "должны быть указаны"
+

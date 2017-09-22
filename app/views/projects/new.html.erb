@@ -36,15 +36,15 @@
                              placeholder: (t '.tags_placeholder'), class: 'form-control' %>
           </div>
           <div class="goals">
-            <%= f.label 'Goals' %>
-            <%= f.simple_fields_for :goals do |builder| %>
+            <%= f.label (t '.goals') %>
+            <%= f.fields_for :goals do |builder| %>
               <%= render 'goal_fields', f: builder %>
             <% end %>
           </div>
           <br />
-          <%= link_to_add_association 'Add Goal', f, :goals, class: 'btn btn-default',
+          <%= link_to_add_association (t '.add_goal'), f, :goals, class: 'btn btn-default',
                                       data: { association_insertion_node: '.goals', association_insertion_method: :append } %>
-          <%= f.submit (t '.create'), class: 'btn btn-success btn-block' %>
+          <%= f.submit (t '.create'), class: 'btn btn-default btn-block' %>
         </div>
       <% end %>
   </div>

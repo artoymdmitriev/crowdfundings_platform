@@ -1,5 +1,10 @@
 <h1>List of Users</h1>
 
+<%= form_tag users_path, method: :get, class: 'pull-right' do %>
+    <%= submit_tag (I18n.t :all_filter), class: 'btn btn-default' %>
+    <%= submit_tag (I18n.t :unchecked_filter), class: 'btn btn-default' %>
+<% end %>
+
 <%= form_tag change_users_path, method: :post do %>
     <%= submit_tag (I18n.t :block_action), class: 'btn btn-default' %>
     <%= submit_tag (I18n.t :unblock_action), class: 'btn btn-default'  %>

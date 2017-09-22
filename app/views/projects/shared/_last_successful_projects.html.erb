@@ -1,4 +1,4 @@
-<h1>Last successful projects</h1>
+<h1><%= t '.last_successful_projects' %></h1>
 <div class="mdl-grid">
   <% last_successful_projects.each do |project| %>
     <div class="mdl-card mdl-cell mdl-cell--4-col mdl-shadow--6dp project-cell">
@@ -13,10 +13,9 @@
         </div>
         <div class="project-properties-index">
           <i class="fa fa-money"></i>
-          <%= project.earned_money(project) %>$
+          <%= earned_money(project) %>$
         </div>
       </div>
     </div>
   <% end %>
 </div>
-<%= link_to 'See more', projects_path, class: 'btn btn-default btn-block' %>

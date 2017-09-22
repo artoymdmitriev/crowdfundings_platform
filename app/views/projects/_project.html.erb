@@ -4,25 +4,13 @@
   <% end %>
   <h3 align="center"><%= link_to project.name, project, style: 'text-decoration:none;' %></h3>
   <div class="col-md-12">
-    <div class="col-md-8">
-      <div class="project-properties-index">
-        <i class="glyphicon glyphicon-time"></i>
-        <%= project.fundings_deadline %>
-      </div>
-      <div class="project-properties-index">
-        <i class="fa fa-money"></i>
-        <%= project.earned_money(project) %>$
-      </div>
+    <div class="project-properties-index">
+      <i class="glyphicon glyphicon-time"></i>
+      <%= project.fundings_deadline %>
     </div>
-    <div class="col-md-4">
-      <% if !current_user.nil? && project.user_id == current_user.id %>
-          <div class="project-properties-index">
-            <%= link_to 'Edit', edit_project_path(project) %>
-          </div>
-          <div class="project-properties-index">
-            <%= link_to 'Delete', project, method: :delete %>
-          </div>
-      <% end %>
+    <div class="project-properties-index">
+      <i class="fa fa-money"></i>
+      <%= earned_money(project) %>$
     </div>
   </div>
 </div>

@@ -5,6 +5,7 @@ class User < ApplicationRecord
   enum role: [:unchecked, :checked, :admin]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
   has_many :projects
   has_many :comments
   has_many :payments

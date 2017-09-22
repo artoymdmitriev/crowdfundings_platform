@@ -27,6 +27,10 @@ en:
       logout: "Log out"
       title: "Crowdfunding"
       search: "Search"
+      my_projects: "My projects"
+      settings: "Settings"
+    navbar_admin_actions:
+      manage_users: "Управлять пользователями"
   layouts:
     application:
       title: "Crowdfunding"
@@ -37,8 +41,10 @@ en:
   block_action: "Block"
   unblock_action: "Unblock"
   delete_action: "Delete"
+  all_filter: "All"
+  unchecked_filter: "Unchecked"
 
-  settings:
+  ui_settings:
     my_settings:
       settings: "Settings"
       language: "Language"
@@ -84,6 +90,7 @@ en:
     show:
       state: "State"
       about: "About"
+      goals: "Goals"
       tags: "Tags"
       comments: "Comments"
       pledged: "pledged of"
@@ -105,9 +112,32 @@ en:
       max_payment: "Max payment"
       tags: "Tags"
       tags_placeholder: "car, flower, tower"
+      goals: "Goals"
       create: "Create"
-
+    edit:
+      name: "Name"
+      description: "Description"
+      picture: "Project's picture"
+      fundings_deadline: "Deadline of fundings"
+      goal: "Project's goal"
+      min_payment: "Min payment"
+      max_payment: "Max payment"
+      tags: "Tags"
+      tags_placeholder: "car, flower, tower"
+      goals: "Goals"
+      update: "Update"
+    shared:
+      error_messages:
+        error: "Error"
+      last_projects:
+        last_created_projects: "Last created projects"
+        see_more: "See more"
+      last_successful_projects:
+        last_successful_projects: "Last Successful Projects"
   payments:
+    shared:
+      biggest_payments:
+        biggest_payments: "Biggest payments"
     new:
       funding_amount: "Funding amount"
       fund: "Fund"
@@ -116,4 +146,39 @@ en:
       invalid_amount: "Please enter a valid amount in USD ($)"
       error_too_small: "Funding amount must be more than"
       error_too_big: "Funding amount must be less than"
+  activerecord:
+    attributes:
+      project:
+        name: "Name"
+        fundings_deadline: "Fundings deadline"
+        description: "Description"
+        pic_link: "Picture"
+        min_payment: "Min payment"
+        max_payment: "Max payment"
+        tags: "Tags"
+        goals: "Goals"
+    errors:
+      models:
+        project:
+          attributes:
+            name:
+              blank: "can't be blank"
+              too_short: "is too short"
+            fundings_deadline:
+              invalid_date: "is invalid"
+            description:
+              blank: "can't be blank"
+              too_short: "is too short"
+            pic_link:
+              blank: "must exist"
+            min_payment:
+              blank: "can't be blank"
+              not_a_number: "must be a number"
+            max_payment:
+              blank: "can't be blank"
+              not_a_number: "must be a number"
+            tags:
+              blank: "can't be blank"
+            goals:
+              blank: "can't be blank"
 

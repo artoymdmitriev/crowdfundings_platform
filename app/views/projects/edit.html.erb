@@ -2,37 +2,52 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
       <%= form_for @project do |f| %>
+        <div class="col-md-6 col-md-offset-3">
+          <h2>Create new project</h2>
+          <%= render '/projects/shared/error_messages' %>
+
           <div class="field">
-            <%= f.label "name" %><br />
+            <%= f.label (t '.name') %>
             <%= f.text_field :name, class: 'form-control' %>
           </div>
           <div class="field">
-            <%= f.label "description" %><br />
+            <%= f.label (t '.description') %>
             <%= f.text_area :description, class: 'form-control' %>
           </div>
           <div class="field">
-            <%= f.label "pic_link" %><br />
-            <div class="input-group">
-            <span class="input-group-btn">
-              <span class="btn btn-small btn-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
-              <%= f.file_field :pic_link, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
-            </span>
-              <span class="form-control"></span>
-            </div>
+            <%= f.label (t '.picture') %>
+            <%= f.file_field :pic_link, class: 'form-control' %>
           </div>
           <div class="field">
-            <%= f.label "fundings_deadline" %><br />
-            <%= f.date_field :fundings_deadline, class: 'form-control' %>
+            <%= f.label (t '.fundings_deadline') %>
+            <%= f.date_field :fundings_deadline, class: 'form-control',
+                             min: Date.today, placeholder: Date.tomorrow.strftime('%Y-%m-%d') %>
           </div>
           <div class="field">
-            <%= f.label "goal" %><br />
-            <%= f.number_field :goal, step: 0.1, class: 'form-control' %>
+            <%= f.label (t '.min_payment') %><br />
+            <%= f.number_field :min_payment, step: 0.1, class: 'form-control', min: 1 %>
+          </div>
+          <div class="field">
+            <%= f.label (t '.max_payment') %><br />
+            <%= f.number_field :max_payment, step: 0.1, class: 'form-control', min: 1 %>
+          </div>
+          <div class="field">
+            <%= f.label (t '.tags') %><br />
+            <%= f.text_field :tag_list, value: f.object.tag_list.to_s,
+                             placeholder: (t '.tags_placeholder'), class: 'form-control' %>
+          </div>
+          <div class="goals">
+            <%= f.label (t '.goals') %>
+            <%= f.fields_for :goals do |builder| %>
+                <%= render 'goal_fields', f: builder %>
+            <% end %>
           </div>
           <br />
-          <%= f.submit "Update", class: 'btn btn-default btn-block' %>
+          <%= link_to_add_association (t '.add_goal'), f, :goals, class: 'btn btn-default',
+                                      data: { association_insertion_node: '.goals', association_insertion_method: :append } %>
+          <%= f.submit (t '.update'), class: 'btn btn-default btn-block' %>
+        </div>
       <% end %>
-    </div>
   </div>
 </div>

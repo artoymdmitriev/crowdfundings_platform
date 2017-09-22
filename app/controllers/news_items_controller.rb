@@ -1,8 +1,10 @@
 class NewsItemsController < ApplicationController
   include Mailable
+  include NewsItemsHelper
   before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :my_news]
   before_action :set_project, except: [:index, :show, :edit, :update, :my_news]
   before_action :load_news_item, only: [:show, :edit, :destroy, :update]
+  before_action :check_for_rights, only: [:create, :update, :edit, :destroy]
 
   def index
     @news_items = @project.news_items
@@ -50,12 +52,7 @@ class NewsItemsController < ApplicationController
   # TODO add translation
   private
   def set_project
-    begin
-      @project = current_user.projects.find(params[:project_id])
-    rescue
-      flash[:error] = 'You are not allowed to add news for this project'
-      redirect_to request.referrer || root_path
-    end
+    @project = Project.find(params[:project_id])
   end
 
   def load_news_item

@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   before_action :check_for_edit_rights, only: [:edit, :destroy]
 
   def index
-    @projects = Project.all
+    @projects = Project.includes(:payments).all.paginate(page: params[:page], per_page: 6)
   end
 
   def my_projects
@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.includes(:user, :tags, comments: :user).find(params[:id])
     @commentable = @project
   end
 
@@ -69,7 +69,7 @@ class ProjectsController < ApplicationController
   end
 
   def save_project
-    if @project.save!
+    if @project.save
       redirect_to root_path
     else
       render :new

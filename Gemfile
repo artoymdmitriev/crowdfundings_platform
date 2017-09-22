@@ -60,15 +60,17 @@ gem 'rails-observers', '~> 0.1.5'
 gem 'whenever', '~> 0.9.7', require: false
 # Tags
 gem 'acts-as-taggable-on', '~> 5.0'
-
+# Nested forms
 gem 'cocoon', '~> 1.2', '>= 1.2.10'
-gem 'simple_form', '~> 3.5'
-
+# Raitings
 gem 'ratyrate', '~> 1.2.2.alpha'
+# Pagination
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'bullet', '~> 5.6', '>= 5.6.1'
 end
 
 group :development do

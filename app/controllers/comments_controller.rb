@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  include CommentsHelper
   before_action :authenticate_user!, except: [:index, :show]
 
   def create

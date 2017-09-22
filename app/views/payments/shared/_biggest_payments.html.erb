@@ -1,6 +1,6 @@
-<h3>Biggest payments</h3>
+<h3><%= t '.biggest_payments' %></h3>
 <% biggest_payments.each do |payment| %>
     <div>
-      <%= payment.amount %> <%= payment.created_at %>
+      <%= link_to ("#{payment.amount.to_s}$ #{payment.created_at.strftime("%d.%m.%Y %H:%M")}"), project_path(payment.project_id) %>
     </div>
 <% end %>

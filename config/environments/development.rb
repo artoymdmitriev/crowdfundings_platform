@@ -62,4 +62,11 @@ Rails.application.configure do
       :password => "Ad123654789"
   }
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+  end
 end
