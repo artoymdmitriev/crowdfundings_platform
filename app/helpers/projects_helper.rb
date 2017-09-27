@@ -41,9 +41,8 @@ module ProjectsHelper
   end
 
   def earned_money project
-    earned = 0
-    project.payments.each { |p| earned += p.amount if p.project_id == project.id }
-    earned
+    # TODO: do in ruby
+    project.payments.sum &:amount
   end
 
   def subscribed?

@@ -32,7 +32,7 @@
           </div>
           <div class="field">
             <%= f.label (t '.tags') %><br />
-            <%= f.text_field :tags, value: f.object.tag_list.to_s,
+            <%= f.text_field :tag_list, value: f.object.tag_list.to_s,
                              placeholder: (t '.tags_placeholder'), class: 'form-control' %>
           </div>
           <div class="goals">

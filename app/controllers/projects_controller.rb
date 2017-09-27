@@ -62,7 +62,8 @@ class ProjectsController < ApplicationController
 
   # TODO add translation
   def check_for_edit_rights
-    unless check_for_rights
+    unless check_for_r
+      ights
       flash[:error] = 'You are not allowed to edit another\'s posts'
       redirect_to projects_path
     end

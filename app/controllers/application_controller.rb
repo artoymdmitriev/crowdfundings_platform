@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   private
   def blocked?
-    if !current_user.nil? && current_user.present? && current_user.is_blocked?
+    if current_user.present? && current_user.is_blocked?
       sign_out current_user
       flash[:error] = "This account has been blocked..."
     end

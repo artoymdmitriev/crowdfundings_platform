@@ -42,10 +42,11 @@ class NewsItemsController < ApplicationController
   end
 
   def my_news
-    projects = []
-    current_user.subscriptions.each { |s| projects << s.project }
+    # TODO:  FIX
+    projects = current_user.subscriptions.map { |subscription| subscription.project }
+
     @news_items = []
-    projects.each { |p| p.news_items.each {|ni| puts ni; @news_items << ni} }
+    projects.each { |p| @news_items += p.news_items }
     @news_items.sort! {|x,y| y.id <=> x.id }
   end
 

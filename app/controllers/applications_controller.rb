@@ -10,8 +10,8 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    @application = Application.create(application_params)
-    @application.update(user_id: current_user.id)
+    # TODO:  FIX
+    @application = Application.create(application_params.)
     redirect_to my_projects_path
   end
 
@@ -31,7 +31,9 @@ class ApplicationsController < ApplicationController
   end
 
   def application_params
-    params.require(:application).permit(:name, :surname, :passport_image, :birthday, :comment)
+    params.require(:application)
+        .permit(:name, :surname, :passport_image, :birthday, :comment)
+        .merge(user_id: current_user.id)
   end
 
   def check_admin
